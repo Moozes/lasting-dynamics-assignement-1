@@ -1,1 +1,3 @@
-export let a = 1
+import { createTheme } from "@mui/material";
+
+export const theme = createTheme()

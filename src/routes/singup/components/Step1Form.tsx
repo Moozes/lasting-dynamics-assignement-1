@@ -9,17 +9,12 @@ import { formikError } from "utils/utils";
 import OutlinedInput from "components/OutlinedInput";
 import LightBlueButton from "components/LighBlueButton";
 import { colors } from "themes/variables";
-
-const FirstCheckboxLabel = (
-  <>
-    Agree with
-    <span className="link"> Terms and Conditions, Privacy Policy </span>
-    and
-    <span className="link"> Cookie Policy </span>
-  </>
-);
+import useFormValidation from "../hooks/useFormValidation";
+import { FormHelperText } from "@mui/material";
 
 function Step1Form(props: DivProps) {
+  const formik = useFormValidation();
+
   return (
     <div {...props}>
       <Logo className="logo" />
@@ -28,36 +23,52 @@ function Step1Form(props: DivProps) {
         Coraly is the tool to manage your work processes form the same place
       </Typography>
 
-      <form>
+      <form onSubmit={formik.handleSubmit}>
         <OutlinedInput
           className="workspace-input"
-          variant="outlined"
           label="Workspace Name"
           size="small"
           fullWidth
-          //   error={formikError("email", formik)}
-          //   helperText={formikError("email", formik) && formik.errors.email}
-          //   {...formik.getFieldProps("email")}
+          error={formikError("workspaceName", formik)}
+          helperText={
+            formikError("workspaceName", formik) && formik.errors.workspaceName
+          }
+          {...formik.getFieldProps("workspaceName")}
         />
         <OutlinedInput
           className="email-input"
-          variant="outlined"
           label="Email"
           size="small"
           fullWidth
-          //   error={formikError("email", formik)}
-          //   helperText={formikError("email", formik) && formik.errors.email}
-          //   {...formik.getFieldProps("email")}
+          error={formikError("email", formik)}
+          helperText={formikError("email", formik) && formik.errors.email}
+          {...formik.getFieldProps("email")}
         />
 
         <FormControlLabel
           className="first-checkbox"
           control={
             <Checkbox
-            // {...formik.getFieldProps("remember")}
+              checked={formik.values.termsAndConditions}
+              {...formik.getFieldProps("termsAndConditions")}
             />
           }
-          label={FirstCheckboxLabel}
+          label={
+            <>
+              Agree with
+              <span className="link">
+                {" "}
+                Terms and Conditions, Privacy Policy{" "}
+              </span>
+              and
+              <span className="link"> Cookie Policy </span>
+              <br />
+              <FormHelperText className="validation-error">
+                {formikError("termsAndConditions", formik) &&
+                  formik.errors.termsAndConditions}
+              </FormHelperText>
+            </>
+          }
         />
         <FormControlLabel
           className="second-checkbox"
@@ -116,6 +127,9 @@ const StyledStep1Form = styled(Step1Form)({
       fontWeight: 600,
       lineHeight: "21px",
       color: colors.subtitle2,
+      "& .validation-error": {
+        color: colors.red,
+      },
     },
   },
   "& .second-checkbox": {

@@ -30,7 +30,6 @@ function Form(props: DivProps) {
       <form onSubmit={formik.handleSubmit}>
         <OutlinedInput
           className="email-input"
-          variant="outlined"
           label="Email"
           size="small"
           fullWidth
@@ -40,7 +39,6 @@ function Form(props: DivProps) {
         />
         <OutlinedInput
           className="password-input"
-          variant="outlined"
           label="Password"
           type="password"
           size="small"

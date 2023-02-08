@@ -72,18 +72,14 @@ function Step1Form(props: DivProps) {
         />
         <FormControlLabel
           className="second-checkbox"
-          control={
-            <Checkbox
-            // {...formik.getFieldProps("remember")}
-            />
-          }
+          control={<Checkbox />}
           label="I authorize Coraly to process my personal data in order to receive informational, promotional and commercial communications via e-mail."
         />
         <LightBlueButton
           type="submit"
           className="create-account-button"
           fullWidth
-          //   disabled={formik.isSubmitting}
+          disabled={formik.isSubmitting}
         >
           Create now the account
         </LightBlueButton>

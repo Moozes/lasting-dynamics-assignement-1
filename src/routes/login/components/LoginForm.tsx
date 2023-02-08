@@ -72,6 +72,7 @@ function LoginForm(props: DivProps) {
           className="login-button"
           size="small"
           fullWidth
+          disabled={formik.isSubmitting}
         >
           Login
         </DarkBlueButton>

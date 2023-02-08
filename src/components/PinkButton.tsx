@@ -3,8 +3,8 @@ import ContainedButton from "./ContainedButton";
 import { colors } from "themes/variables";
 
 
-function DarkBlueButton(props: ButtonProps) {
-    return <ContainedButton {...props} bgColor={colors.darkBlue} />
+function PinkBlueButton(props: ButtonProps) {
+    return <ContainedButton {...props} bgColor={colors.pink} />
 }
 
-export default DarkBlueButton;
+export default PinkBlueButton;

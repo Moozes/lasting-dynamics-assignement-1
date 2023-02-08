@@ -13,6 +13,7 @@ const StyledContainedButton = styled(ContainedButton, {
     lineHeight: "18px",
     padding: "11px 12px",
     borderRadius: "8px",
+    textTransform: "none",
     "&:hover": {
         background: props.bgColor,
     }

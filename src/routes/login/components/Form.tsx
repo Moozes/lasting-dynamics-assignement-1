@@ -31,7 +31,6 @@ function Form(props: DivProps) {
         <OutlinedInput
           className="email-input"
           label="Email"
-          size="small"
           fullWidth
           error={formikError("email", formik)}
           helperText={formikError("email", formik) && formik.errors.email}
@@ -41,7 +40,6 @@ function Form(props: DivProps) {
           className="password-input"
           label="Password"
           type="password"
-          size="small"
           fullWidth
           error={formikError("password", formik)}
           helperText={formikError("password", formik) && formik.errors.password}

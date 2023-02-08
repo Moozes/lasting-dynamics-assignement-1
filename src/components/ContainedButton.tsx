@@ -14,7 +14,9 @@ const StyledContainedButton = styled(ContainedButton, {
     padding: "11px 12px",
     borderRadius: "8px",
     textTransform: "none",
+    boxShadow: "none",
     "&:hover": {
+        boxShadow: "none",
         background: props.bgColor,
     }
 }));

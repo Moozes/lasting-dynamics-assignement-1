@@ -27,7 +27,6 @@ function Step1Form(props: DivProps) {
         <OutlinedInput
           className="workspace-input"
           label="Workspace Name"
-          size="small"
           fullWidth
           error={formikError("workspaceName", formik)}
           helperText={
@@ -38,7 +37,6 @@ function Step1Form(props: DivProps) {
         <OutlinedInput
           className="email-input"
           label="Email"
-          size="small"
           fullWidth
           error={formikError("email", formik)}
           helperText={formikError("email", formik) && formik.errors.email}
@@ -103,6 +101,7 @@ const StyledStep1Form = styled(Step1Form)({
     marginBottom: "8px",
     fontSize: "24px",
     fontWeight: 700,
+    color: colors.title
   },
   "& .secondary": {
     marginBottom: "50px",

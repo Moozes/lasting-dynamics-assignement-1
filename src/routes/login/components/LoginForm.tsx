@@ -13,6 +13,7 @@ import useFormValidation from "../hooks/useFormValidation";
 import { useState } from "react";
 import ErrorSnackbar from "./ErrorSnackbar";
 import SuccessSnackbar from "./SuccessSnackbar";
+import OutlinedInput from "components/OutlinedInput";
 
 function LoginForm(props: DivProps) {
   const [errorOpen, setErrorOpen] = useState(false);
@@ -27,7 +28,7 @@ function LoginForm(props: DivProps) {
         Thanks to come back on Coraly
       </Typography>
       <form onSubmit={formik.handleSubmit}>
-        <TextField
+        <OutlinedInput
           className="email-input"
           variant="outlined"
           label="Email"
@@ -37,7 +38,7 @@ function LoginForm(props: DivProps) {
           helperText={formikError("email", formik) && formik.errors.email}
           {...formik.getFieldProps("email")}
         />
-        <TextField
+        <OutlinedInput
           className="password-input"
           variant="outlined"
           label="Password"

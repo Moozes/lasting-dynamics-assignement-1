@@ -6,11 +6,11 @@ import { formikError } from "utils/utils";
 import OutlinedInput from "components/OutlinedInput";
 import LightBlueButton from "components/LighBlueButton";
 import { colors } from "themes/variables";
-import useFormValidation from "../hooks/useFormValidation";
+import useFormValidation2 from "../hooks/useFormValidation2";
 import Grid from "@mui/material/Grid";
 
 function Step2Form(props: DivProps) {
-  const formik = useFormValidation();
+  const formik = useFormValidation2();
 
   return (
     <div {...props}>
@@ -21,31 +21,29 @@ function Step2Form(props: DivProps) {
       </Typography>
 
       <form
-      //   onSubmit={formik.handleSubmit}
+        onSubmit={formik.handleSubmit}
       >
         <Grid container gap="24px" className="inputs-grid">
           <Grid item width="0" flexGrow="1">
             <OutlinedInput
-              //   className="workspace-input"
               label="Name"
               fullWidth
-              //   error={formikError("workspaceName", formik)}
-              //   helperText={
-              //     formikError("workspaceName", formik) && formik.errors.workspaceName
-              //   }
-              //   {...formik.getFieldProps("workspaceName")}
+                error={formikError("name", formik)}
+                helperText={
+                  formikError("name", formik) && formik.errors.name
+                }
+                {...formik.getFieldProps("name")}
             />
           </Grid>
           <Grid item width="0" flexGrow="1">
             <OutlinedInput
-              //   className="workspace-input"
               label="Surname"
               fullWidth
-              //   error={formikError("workspaceName", formik)}
-              //   helperText={
-              //     formikError("workspaceName", formik) && formik.errors.workspaceName
-              //   }
-              //   {...formik.getFieldProps("workspaceName")}
+                error={formikError("surname", formik)}
+                helperText={
+                  formikError("surname", formik) && formik.errors.surname
+                }
+                {...formik.getFieldProps("surname")}
             />
           </Grid>
         </Grid>
@@ -53,24 +51,23 @@ function Step2Form(props: DivProps) {
           className="password-input"
           label="Password"
           fullWidth
-          //   error={formikError("email", formik)}
-          //   helperText={formikError("email", formik) && formik.errors.email}
-          //   {...formik.getFieldProps("email")}
+            error={formikError("password", formik)}
+            helperText={formikError("password", formik) && formik.errors.password}
+            {...formik.getFieldProps("password")}
         />
         <OutlinedInput
           className="repeat-password-input"
           label="Repeat Password"
           fullWidth
-          //   error={formikError("email", formik)}
-          //   helperText={formikError("email", formik) && formik.errors.email}
-          //   {...formik.getFieldProps("email")}
+            error={formikError("repeatPassword", formik)}
+            helperText={formikError("repeatPassword", formik) && formik.errors.repeatPassword}
+            {...formik.getFieldProps("repeatPassword")}
         />
 
         <LightBlueButton
           type="submit"
-          //   className="create-account-button"
           fullWidth
-          //   disabled={formik.isSubmitting}
+            disabled={formik.isSubmitting}
         >
           Complete now
         </LightBlueButton>
@@ -111,40 +108,6 @@ const StyledStep2Form = styled(Step2Form)({
       padding: "12px 16px",
     },
   },
-  //   "& .first-checkbox": {
-  //     marginBottom: "16px",
-  //     "& .MuiFormControlLabel-label": {
-  //       fontSize: "14px",
-  //       fontWeight: 600,
-  //       lineHeight: "21px",
-  //       color: colors.subtitle2,
-  //       "& .validation-error": {
-  //         color: colors.red,
-  //       },
-  //     },
-  //   },
-  //   "& .second-checkbox": {
-  //     marginBottom: "32px",
-  //     "& .MuiFormControlLabel-label": {
-  //       fontSize: "14px",
-  //       fontWeight: 400,
-  //       lineHeight: "18px",
-  //       color: colors.subtitle2,
-  //     },
-  //   },
-  //   "& .link": {
-  //     color: colors.lightBlue,
-  //     textDecoration: "none",
-  //   },
-  //   "& .create-account-button": {
-  //     marginBottom: "32px",
-  //   },
-  //   "& .signin": {
-  //     fontSize: "14px",
-  //     lineHeight: "18px",
-  //     fontWeight: 400,
-  //     color: colors.subtitle2,
-  //   },
 });
 
 export default StyledStep2Form;

@@ -9,11 +9,11 @@ import { formikError } from "utils/utils";
 import OutlinedInput from "components/OutlinedInput";
 import LightBlueButton from "components/LighBlueButton";
 import { colors } from "themes/variables";
-import useFormValidation from "../hooks/useFormValidation";
+import useFormValidation1 from "../hooks/useFormValidation1";
 import { FormHelperText } from "@mui/material";
 
 function Step1Form(props: DivProps) {
-  const formik = useFormValidation();
+  const formik = useFormValidation1();
 
   return (
     <div {...props}>

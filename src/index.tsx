@@ -12,8 +12,8 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <App />
+      <CssBaseline /> {/* reset styles */}
+      <App /> 
     </ThemeProvider>
   </React.StrictMode>
 );

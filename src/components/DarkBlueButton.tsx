@@ -1,6 +1,5 @@
 import styled from "@emotion/styled";
 import Button, { ButtonProps }from "@mui/material/Button";
-import { Theme } from "@mui/material";
 
 
 const StyledDarkBlueButton = styled(DarkBlueButton)({

@@ -43,6 +43,10 @@ const router = createBrowserRouter([
                 element: "set new password",
             },
         ]
+    },
+    {
+        path: "/dashboard",
+        element: <h1>Dashboard</h1>
     }
 ])
 

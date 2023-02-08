@@ -1,4 +1,3 @@
-import { Outlet } from "react-router-dom"
 import Grid from "@mui/material/Grid"
 
 
@@ -10,7 +9,7 @@ type AuthContainerProps = {
 export default function AuthContainer(props: AuthContainerProps) {
     return (
         <Grid container >
-            <Grid item width={props.leftPanelWidth} minHeight="100vh">
+            <Grid item width={props.leftPanelWidth} height="100vh" overflow="auto">
                {props.children}
             </Grid>
             <Grid item 

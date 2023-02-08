@@ -8,26 +8,17 @@ import DarkBlueButton from "components/DarkBlueButton";
 import styled from "@emotion/styled";
 import { DivProps } from "types/types";
 import { Grid } from "@mui/material";
-import { useFormik } from "formik";
-import * as Yup from "yup";
 import { formikError } from "utils/utils"
+import useFormValidation from "../hooks/useFormValidation";
+import ErrorSnackBar from "./ErrorSnackBar";
+import { useState } from "react";
+import SuccessSnackbar from "./SuccessSnackbar";
+
 
 function LoginForm(props: DivProps) {
-  const formik = useFormik({
-    initialValues: {
-        email: "",
-        password: "",
-        remember: false
-    },
-    validationSchema: Yup.object({
-        email: Yup.string().required("Required").email("Invalid email format"),
-        password: Yup.string().required("Required"),
-    }),
-    onSubmit: (values, helpers) => {
-      alert(JSON.stringify(values, null, 2));
-      helpers.resetForm()
-    },
-  });
+  const [errorOpen, setErrorOpen] = useState(false)
+  const [successOpen, setSuccessOpen] = useState(false)
+  const formik = useFormValidation(setSuccessOpen, setErrorOpen)
 
   return (
     <div {...props}>
@@ -87,12 +78,14 @@ function LoginForm(props: DivProps) {
           Login
         </DarkBlueButton>
       </form>
-      <Typography>
+      <Typography className="signup" >
         Don't you have an account?
         <Link to="/signup" className="link">
           Sign up now
         </Link>
       </Typography>
+      <ErrorSnackBar open={errorOpen} onClose={() => setErrorOpen(false)}/>
+      <SuccessSnackbar open={successOpen} onClose={() => setSuccessOpen(false)}/>
     </div>
   );
 }
@@ -123,6 +116,9 @@ const StyledLoginForm = styled(LoginForm)({
   ".link": {
     color: "#2CCFBC",
     textDecoration: "none",
+  },
+  ".signup": {
+    paddingBottom: 40
   },
 });
 

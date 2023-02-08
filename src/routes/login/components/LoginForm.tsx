@@ -8,43 +8,35 @@ import DarkBlueButton from "components/DarkBlueButton";
 import styled from "@emotion/styled";
 import { DivProps } from "types/types";
 import { Grid } from "@mui/material";
-import { formikError } from "utils/utils"
+import { formikError } from "utils/utils";
 import useFormValidation from "../hooks/useFormValidation";
-import ErrorSnackBar from "./ErrorSnackBar";
 import { useState } from "react";
+import ErrorSnackbar from "./ErrorSnackbar";
 import SuccessSnackbar from "./SuccessSnackbar";
 
-
 function LoginForm(props: DivProps) {
-  const [errorOpen, setErrorOpen] = useState(false)
-  const [successOpen, setSuccessOpen] = useState(false)
-  const formik = useFormValidation(setSuccessOpen, setErrorOpen)
+  const [errorOpen, setErrorOpen] = useState(false);
+  const [successOpen, setSuccessOpen] = useState(false);
+  const formik = useFormValidation(setSuccessOpen, setErrorOpen);
 
   return (
     <div {...props}>
       <Logo className="logo" />
-      <Typography className="title" fontSize="24px" fontWeight="700">
-        Login
-      </Typography>
-      <Typography
-        className="secondary"
-        fontSize="14px"
-        fontWeight="400"
-        color="#6F6D7B"
-      >
+      <Typography className="title">Login</Typography>
+      <Typography className="secondary">
         Thanks to come back on Coraly
       </Typography>
       <form onSubmit={formik.handleSubmit}>
         <TextField
-            className="email-input"
-            variant="outlined"
-            label="Email"
-            size="small"
-            fullWidth
-            error={formikError("email", formik)}
-            helperText={formikError("email", formik) && formik.errors.email}
-            {...formik.getFieldProps('email')}
-            />
+          className="email-input"
+          variant="outlined"
+          label="Email"
+          size="small"
+          fullWidth
+          error={formikError("email", formik)}
+          helperText={formikError("email", formik) && formik.errors.email}
+          {...formik.getFieldProps("email")}
+        />
         <TextField
           className="password-input"
           variant="outlined"
@@ -54,7 +46,7 @@ function LoginForm(props: DivProps) {
           fullWidth
           error={formikError("password", formik)}
           helperText={formikError("password", formik) && formik.errors.password}
-          {...formik.getFieldProps('password')}
+          {...formik.getFieldProps("password")}
         />
         <Grid
           container
@@ -64,7 +56,7 @@ function LoginForm(props: DivProps) {
         >
           <Grid item>
             <FormControlLabel
-              control={<Checkbox {...formik.getFieldProps('remember')} />}
+              control={<Checkbox {...formik.getFieldProps("remember")} />}
               label="Remember me"
             />
           </Grid>
@@ -74,18 +66,23 @@ function LoginForm(props: DivProps) {
             </Link>
           </Grid>
         </Grid>
-        <DarkBlueButton type="submit" className="login-button" size="small" fullWidth>
+        <DarkBlueButton
+          type="submit"
+          className="login-button"
+          size="small"
+          fullWidth
+        >
           Login
         </DarkBlueButton>
       </form>
-      <Typography className="signup" >
+      <Typography className="signup">
         Don't you have an account?
         <Link to="/signup" className="link">
           Sign up now
         </Link>
       </Typography>
-      <ErrorSnackBar open={errorOpen} onClose={() => setErrorOpen(false)}/>
-      <SuccessSnackbar open={successOpen} onClose={() => setSuccessOpen(false)}/>
+      <SuccessSnackbar open={successOpen} onClose={() => setSuccessOpen(false)} />
+      <ErrorSnackbar open={errorOpen} onClose={() => setErrorOpen(false)} />
     </div>
   );
 }
@@ -97,9 +94,14 @@ const StyledLoginForm = styled(LoginForm)({
   },
   ".title": {
     marginBottom: "8px",
+    fontSize: "24px",
+    fontWeight: 700,
   },
   ".secondary": {
     marginBottom: "50px",
+    fontSize: "14px",
+    fontWeight: 400,
+    color: "#6F6D7B",
   },
   ".email-input": {
     marginBottom: "24px",
@@ -118,7 +120,7 @@ const StyledLoginForm = styled(LoginForm)({
     textDecoration: "none",
   },
   ".signup": {
-    paddingBottom: 40
+    paddingBottom: 40,
   },
 });
 

@@ -13,15 +13,15 @@ export default function useFormValidation(
       password: "",
       remember: false,
     },
-    // validationSchema: Yup.object({
-    //   email: Yup.string().required("Required").email("Invalid email format"),
-    //   password: Yup.string().required("Required"),
-    // }),
+    validationSchema: Yup.object({
+      email: Yup.string().required("Required").email("Invalid email format"),
+      password: Yup.string().required("Required"),
+    }),
     onSubmit: (values, helpers) => {
       helpers.resetForm();
-      // setSuccessOpen(true)
-      setErrorOpen(true)
-      // setTimeout(() => navigate("/dashboard"), 2000)
+      setSuccessOpen(true)
+      // setErrorOpen(true)
+      setTimeout(() => navigate("/dashboard"), 2000)
     },
   });
   return formik;

@@ -14,7 +14,7 @@ import ErrorSnackbar from "./ErrorSnackbar";
 import SuccessSnackbar from "./SuccessSnackbar";
 import OutlinedInput from "components/OutlinedInput";
 import { colors } from "themes/variables";
-
+import LoadingSpinner from "components/LoadingSpinner";
 function Form(props: DivProps) {
   const [errorOpen, setErrorOpen] = useState(false);
   const [successOpen, setSuccessOpen] = useState(false);
@@ -70,6 +70,11 @@ function Form(props: DivProps) {
           disabled={formik.isSubmitting}
         >
           Login
+          <LoadingSpinner
+            color={colors.darkBlue}
+            className="loading-spinner"
+            open={formik.isSubmitting}
+          />
         </DarkBlueButton>
       </form>
       <Typography className="signup">
@@ -78,7 +83,10 @@ function Form(props: DivProps) {
           Sign up now
         </Link>
       </Typography>
-      <SuccessSnackbar open={successOpen} onClose={() => setSuccessOpen(false)} />
+      <SuccessSnackbar
+        open={successOpen}
+        onClose={() => setSuccessOpen(false)}
+      />
       <ErrorSnackbar open={errorOpen} onClose={() => setErrorOpen(false)} />
     </div>
   );
@@ -111,6 +119,9 @@ const StyledForm = styled(Form)({
   },
   "& .login-button": {
     marginBottom: "32px",
+    "& .loading-spinner": {
+      marginLeft: "10px",
+    },
   },
   "& .link": {
     color: colors.lightBlue,

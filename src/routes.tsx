@@ -8,11 +8,13 @@ import SignupStep1Form from "routes/singup/components/Step1Form";
 import SignupEmailSent from "routes/singup/components/EmailSent";
 import SignupStep2Form from "routes/singup/components/Step2Form";
 import ResetPassword from "routes/reset-password/ResetPassword"
+import NotFound from "routes/not-found/NotFound";
 
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <Login/>
+        element: <Login/>,
+        errorElement: <NotFound/>
     },
     {
         path: "/signup",

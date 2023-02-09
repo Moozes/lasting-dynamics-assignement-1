@@ -20,55 +20,52 @@ function Step2Form(props: DivProps) {
         Insert all your info to proceed with your workspace
       </Typography>
 
-      <form
-        onSubmit={formik.handleSubmit}
-      >
+      <form onSubmit={formik.handleSubmit}>
         <Grid container gap="24px" className="inputs-grid">
           <Grid item width="0" flexGrow="1">
             <OutlinedInput
               label="Name"
               fullWidth
-                error={formikError("name", formik)}
-                helperText={
-                  formikError("name", formik) && formik.errors.name
-                }
-                {...formik.getFieldProps("name")}
+              error={formikError("name", formik)}
+              helperText={formikError("name", formik) && formik.errors.name}
+              {...formik.getFieldProps("name")}
             />
           </Grid>
           <Grid item width="0" flexGrow="1">
             <OutlinedInput
               label="Surname"
               fullWidth
-                error={formikError("surname", formik)}
-                helperText={
-                  formikError("surname", formik) && formik.errors.surname
-                }
-                {...formik.getFieldProps("surname")}
+              error={formikError("surname", formik)}
+              helperText={
+                formikError("surname", formik) && formik.errors.surname
+              }
+              {...formik.getFieldProps("surname")}
             />
           </Grid>
         </Grid>
         <OutlinedInput
           className="password-input"
           label="Password"
+          type="password"
           fullWidth
-            error={formikError("password", formik)}
-            helperText={formikError("password", formik) && formik.errors.password}
-            {...formik.getFieldProps("password")}
+          error={formikError("password", formik)}
+          helperText={formikError("password", formik) && formik.errors.password}
+          {...formik.getFieldProps("password")}
         />
         <OutlinedInput
           className="repeat-password-input"
           label="Repeat Password"
+          type="password"
           fullWidth
-            error={formikError("repeatPassword", formik)}
-            helperText={formikError("repeatPassword", formik) && formik.errors.repeatPassword}
-            {...formik.getFieldProps("repeatPassword")}
+          error={formikError("repeatPassword", formik)}
+          helperText={
+            formikError("repeatPassword", formik) &&
+            formik.errors.repeatPassword
+          }
+          {...formik.getFieldProps("repeatPassword")}
         />
 
-        <LightBlueButton
-          type="submit"
-          fullWidth
-            disabled={formik.isSubmitting}
-        >
+        <LightBlueButton type="submit" fullWidth disabled={formik.isSubmitting}>
           Complete now
         </LightBlueButton>
       </form>

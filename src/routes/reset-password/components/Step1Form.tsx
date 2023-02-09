@@ -7,9 +7,10 @@ import OutlinedInput from "components/OutlinedInput";
 import PinkButton from "components/PinkButton";
 import { colors } from "themes/variables";
 import { Link } from "react-router-dom";
+import useFormValidation1 from "../hooks/useFormValidation1";
 
 function Step1Form(props: DivProps) {
-  //   const formik = useFormValidation2();
+    const formik = useFormValidation1();
 
   return (
     <div {...props}>
@@ -21,22 +22,22 @@ function Step1Form(props: DivProps) {
       </Typography>
 
       <form
-      //   onSubmit={formik.handleSubmit}
+        onSubmit={formik.handleSubmit}
       >
         <OutlinedInput
           className="email-input"
           label="Email"
           fullWidth
-          //   error={formikError("name", formik)}
-          //   helperText={formikError("name", formik) && formik.errors.name}
-          //   {...formik.getFieldProps("name")}
+            error={formikError("email", formik)}
+            helperText={formikError("email", formik) && formik.errors.email}
+            {...formik.getFieldProps("email")}
         />
 
         <PinkButton
           type="submit"
           className="reset-password-button"
           fullWidth
-          //  disabled={formik.isSubmitting}
+           disabled={formik.isSubmitting}
         >
           Reset Password
         </PinkButton>

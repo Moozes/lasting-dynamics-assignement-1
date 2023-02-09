@@ -11,6 +11,7 @@ import LightBlueButton from "components/LighBlueButton";
 import { colors } from "themes/variables";
 import useFormValidation1 from "../hooks/useFormValidation1";
 import { FormHelperText } from "@mui/material";
+import LoadingSpinner from "components/LoadingSpinner";
 
 function Step1Form(props: DivProps) {
   const formik = useFormValidation1();
@@ -80,6 +81,11 @@ function Step1Form(props: DivProps) {
           disabled={formik.isSubmitting}
         >
           Create now the account
+          <LoadingSpinner
+            color={colors.lightBlue}
+            className="loading-spinner"
+            open={formik.isSubmitting}
+          />
         </LightBlueButton>
       </form>
       <Typography className="signin">
@@ -142,6 +148,9 @@ const StyledStep1Form = styled(Step1Form)({
   },
   "& .create-account-button": {
     marginBottom: "32px",
+    "& .loading-spinner": {
+      marginLeft: "10px",
+    },
   },
   "& .signin": {
     fontSize: "14px",

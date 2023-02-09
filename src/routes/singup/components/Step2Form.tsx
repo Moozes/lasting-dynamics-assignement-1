@@ -8,6 +8,7 @@ import LightBlueButton from "components/LighBlueButton";
 import { colors } from "themes/variables";
 import useFormValidation2 from "../hooks/useFormValidation2";
 import Grid from "@mui/material/Grid";
+import LoadingSpinner from "components/LoadingSpinner";
 
 function Step2Form(props: DivProps) {
   const formik = useFormValidation2();
@@ -67,6 +68,11 @@ function Step2Form(props: DivProps) {
 
         <LightBlueButton type="submit" fullWidth disabled={formik.isSubmitting}>
           Complete now
+          <LoadingSpinner
+            color={colors.lightBlue}
+            className="loading-spinner"
+            open={formik.isSubmitting}
+          />
         </LightBlueButton>
       </form>
     </div>
@@ -104,6 +110,9 @@ const StyledStep2Form = styled(Step2Form)({
     "& inpur": {
       padding: "12px 16px",
     },
+  },
+  "& .loading-spinner": {
+    marginLeft: "10px",
   },
 });
 

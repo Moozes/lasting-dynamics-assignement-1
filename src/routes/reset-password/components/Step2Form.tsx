@@ -6,10 +6,10 @@ import { formikError } from "utils/utils";
 import OutlinedInput from "components/OutlinedInput";
 import PinkButton from "components/PinkButton";
 import { colors } from "themes/variables";
-// import useFormValidation1 from "../hooks/useFormValidation1";
+import useFormValidation2 from "../hooks/useFormValidation2";
 
 function Step2Form(props: DivProps) {
-  // const formik = useFormValidation1();
+  const formik = useFormValidation2();
 
   return (
     <div {...props}>
@@ -20,32 +20,32 @@ function Step2Form(props: DivProps) {
       </Typography>
 
       <form
-      // onSubmit={formik.handleSubmit}
+      onSubmit={formik.handleSubmit}
       >
         <OutlinedInput
             className="password1-input"
             label="New password"
             type="password"
           fullWidth
-          // error={formikError("email", formik)}
-          // helperText={formikError("email", formik) && formik.errors.email}
-          // {...formik.getFieldProps("email")}
+          error={formikError("password", formik)}
+          helperText={formikError("password", formik) && formik.errors.password}
+          {...formik.getFieldProps("password")}
         />
         <OutlinedInput
             className="password2-input"
             label="Confirm new password"
             type="password"
           fullWidth
-          // error={formikError("email", formik)}
-          // helperText={formikError("email", formik) && formik.errors.email}
-          // {...formik.getFieldProps("email")}
+          error={formikError("repeatPassword", formik)}
+          helperText={formikError("repeatPassword", formik) && formik.errors.repeatPassword}
+          {...formik.getFieldProps("repeatPassword")}
         />
 
         <PinkButton
           type="submit"
           className="confirm-password-button"
           fullWidth
-          //    disabled={formik.isSubmitting}
+             disabled={formik.isSubmitting}
         >
           Confirm new password
         </PinkButton>

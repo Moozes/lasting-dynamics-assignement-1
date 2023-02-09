@@ -8,6 +8,7 @@ import PinkButton from "components/PinkButton";
 import { colors } from "themes/variables";
 import { Link } from "react-router-dom";
 import useFormValidation1 from "../hooks/useFormValidation1";
+import LoadingSpinner from "components/LoadingSpinner";
 
 function Step1Form(props: DivProps) {
     const formik = useFormValidation1();
@@ -40,6 +41,11 @@ function Step1Form(props: DivProps) {
            disabled={formik.isSubmitting}
         >
           Reset Password
+          <LoadingSpinner
+            color={colors.pink}
+            className="loading-spinner"
+            open={formik.isSubmitting}
+          />
         </PinkButton>
         <Typography className="signin">
           Go back to{" "}
@@ -74,6 +80,9 @@ const StyledStep1Form = styled(Step1Form)({
   },
   "& .reset-password-button": {
     marginBottom: "32px",
+    "& .loading-spinner": {
+      marginLeft: "10px",
+    },
   },
   "& .signin": {
     fontSize: "14px",

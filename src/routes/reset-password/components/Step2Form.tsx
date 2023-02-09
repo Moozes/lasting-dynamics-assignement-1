@@ -7,6 +7,7 @@ import OutlinedInput from "components/OutlinedInput";
 import PinkButton from "components/PinkButton";
 import { colors } from "themes/variables";
 import useFormValidation2 from "../hooks/useFormValidation2";
+import LoadingSpinner from "components/LoadingSpinner";
 
 function Step2Form(props: DivProps) {
   const formik = useFormValidation2();
@@ -48,6 +49,11 @@ function Step2Form(props: DivProps) {
              disabled={formik.isSubmitting}
         >
           Confirm new password
+          <LoadingSpinner
+            color={colors.pink}
+            className="loading-spinner"
+            open={formik.isSubmitting}
+          />
         </PinkButton>
       </form>
     </div>
@@ -76,6 +82,9 @@ const StyledStep2Form = styled(Step2Form)({
   },
   "& .confirm-password-button": {
     marginBottom: "32px",
+    "& .loading-spinner": {
+      marginLeft: "10px",
+    },
   },
 });
 

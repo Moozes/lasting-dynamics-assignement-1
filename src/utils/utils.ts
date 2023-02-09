@@ -9,3 +9,8 @@ export function fakeAPI(timer: number) {
     setTimeout(() => res("resolved"), timer)
   );
 }
+
+
+export function getAuthenticationFromLocalStorage() {
+  return Boolean(localStorage.getItem("isAuthenticated"))
+}

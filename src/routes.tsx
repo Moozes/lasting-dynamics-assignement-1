@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Login from "routes/login/Login";
 import ResetPasswordStep1Form from "routes/reset-password/components/Step1Form";
+import ResetPasswordEmailSent from "routes/reset-password/components/EmailSent";
 import Signup from "routes/singup/Signup"
 import SignupStep1Form from "routes/singup/components/Step1Form";
 import SignupEmailSent from "routes/singup/components/EmailSent";
@@ -40,10 +41,10 @@ const router = createBrowserRouter([
             },
             {
                 path: "email-sent",
-                element: "Email Sent",
+                element: <ResetPasswordEmailSent/>,
             },
             {
-                path: "set-new-password",
+                path: "step2",
                 element: "set new password",
             },
         ]

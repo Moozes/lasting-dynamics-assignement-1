@@ -2,12 +2,14 @@ import { useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import { login } from "api/authentication";
+import { useAuthenticationContext } from "hooks/useAuthenticationContext";
 
 export default function useFormValidation(
   setSuccessOpen: React.Dispatch<React.SetStateAction<boolean>>,
   setErrorOpen: React.Dispatch<React.SetStateAction<boolean>>
 ) {
   const navigate = useNavigate();
+  const {login: saveLoginContext} = useAuthenticationContext()
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -23,6 +25,7 @@ export default function useFormValidation(
       setSuccessOpen(loginValid)
       setErrorOpen(!loginValid)
       if(loginValid) {
+        saveLoginContext()
         setTimeout(() => navigate("/dashboard"), 2000)
       } 
       helpers.resetForm();

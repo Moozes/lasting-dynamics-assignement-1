@@ -9,6 +9,7 @@ import SignupEmailSent from "routes/singup/components/EmailSent";
 import SignupStep2Form from "routes/singup/components/Step2Form";
 import ResetPassword from "routes/reset-password/ResetPassword"
 import NotFound from "routes/not-found/NotFound";
+import RequiresAuthentication from "components/RequiresAuthentication";
 
 const router = createBrowserRouter([
     {
@@ -54,7 +55,11 @@ const router = createBrowserRouter([
     },
     {
         path: "/dashboard",
-        element: <h1>Dashboard</h1>
+        element: (
+            <RequiresAuthentication>
+                <h1>Dashboard</h1>
+            </RequiresAuthentication>
+        )
     }
 ])
 

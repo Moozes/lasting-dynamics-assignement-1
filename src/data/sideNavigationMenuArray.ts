@@ -28,3 +28,10 @@ export const sideNavigationMenuArray = [
     generateObjectWithId(siteMap, "Map"),
     generateObjectWithId(help, "Help"),
 ]
+
+export function generateEmptyRoutes() {
+    return sideNavigationMenuArray.map(elm => ({
+        path: elm.text,
+        element: elm.text
+    }))
+}

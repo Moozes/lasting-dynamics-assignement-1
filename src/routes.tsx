@@ -11,6 +11,7 @@ import ResetPassword from "routes/reset-password/ResetPassword"
 import NotFound from "routes/not-found/NotFound";
 import RequiresAuthentication from "components/RequiresAuthentication";
 import DashboardContainer from "components/DashboardContainer";
+import { generateEmptyRoutes } from "data/sideNavigationMenuArray";
 
 const router = createBrowserRouter([
     {
@@ -62,10 +63,7 @@ const router = createBrowserRouter([
             </RequiresAuthentication>
         ),
         children: [
-            {
-                path:"Users",
-                element: "Users"
-            }
+            ...generateEmptyRoutes()
         ]
     }
 ])

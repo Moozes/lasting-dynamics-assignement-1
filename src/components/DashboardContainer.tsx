@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import PermanentDrawer from "./PemanentDrawer";
 import { colors } from "themes/variables";
 import { useState } from "react";
+import SideNavigationMenu from "./SideNavigationMenu";
 
 const fullDrawerWidth = "200px";
 const shrinkedDrawerWidth = "80px";
@@ -35,9 +36,10 @@ export default function DashboardContainer() {
     return (
         <>
             <StyledPermanentDrawer open={open}>
+                <SideNavigationMenu open={open}  toggleOpen={() => setOpen(prev => !prev)} />
             </StyledPermanentDrawer>
             <Main open={open}>
-
+        hello
             </Main>
         </>
     )

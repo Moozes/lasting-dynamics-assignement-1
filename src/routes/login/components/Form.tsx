@@ -53,6 +53,7 @@ function Form(props: DivProps) {
         >
           <Grid item>
             <FormControlLabel
+              className="checkbox"
               control={<Checkbox {...formik.getFieldProps("remember")} />}
               label="Remember me"
             />
@@ -116,6 +117,11 @@ const StyledForm = styled(Form)({
   },
   "& .checkbox-grid": {
     marginBottom: "34px",
+    "& .MuiFormControlLabel-root .MuiTypography-root": {
+      fontSize: "14px",
+      lineHeight: "18px",
+      fontWeight: 400,
+    }
   },
   "& .login-button": {
     marginBottom: "32px",
@@ -126,6 +132,9 @@ const StyledForm = styled(Form)({
   "& .link": {
     color: colors.lightBlue,
     textDecoration: "none",
+    fontSize: "14px",
+    lineHeight: "18px",
+    fontWeight: 400,
   },
   "& .signup": {
     fontSize: "14px",

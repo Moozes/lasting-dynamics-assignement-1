@@ -5,13 +5,22 @@ import ld from "assets/icon/ld.svg";
 import Logo from "./Logo";
 import { sideNavigationMenuArray } from "data/sideNavigationMenuArray";
 import { NavLink } from "react-router-dom";
-import logout from "assets/icon/logout.svg"
+import logoutIcon from "assets/icon/logout.svg"
+import { useAuthenticationContext } from "hooks/useAuthenticationContext";
 
 type SideNavigationMenuProps = DivProps & {
   toggleOpen: VoidFunction;
 };
 
 function SideNavigationMenu({ toggleOpen, ...props }: SideNavigationMenuProps) {
+    const { logout } = useAuthenticationContext()
+
+    const onLogout = () => {
+        // eslint-disable-next-line no-restricted-globals
+        if(confirm("Do you really want to logout?") === true)
+            logout()
+    }
+
   return (
     <div {...props}>
       <div className="toggle" onClick={toggleOpen}>
@@ -36,8 +45,8 @@ function SideNavigationMenu({ toggleOpen, ...props }: SideNavigationMenuProps) {
             <div className="text"> {elm.text} </div>
           </NavLink>
         ))}
-        <div className="item" title="logout" >
-            <img src={logout} alt="logout" />
+        <div className="item" title="logout"  onClick={onLogout} >
+            <img src={logoutIcon} alt="logout" />
             <div className="text"> Logout </div>
           </div>
       </div>

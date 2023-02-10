@@ -23,7 +23,8 @@ const StyledPermanentDrawer = styled(PermanentDrawer, styledOptions)<OpenProp>(p
     "& .MuiPaper-root": {
         width: props.open ? fullDrawerWidth : shrinkedDrawerWidth,
         transition: "width .5s",
-        background: colors.darkBlue
+        background: colors.darkBlue,
+        overflowX: "hidden"
     }
 }))
 
@@ -34,7 +35,6 @@ export default function DashboardContainer() {
     return (
         <>
             <StyledPermanentDrawer open={open}>
-                
             </StyledPermanentDrawer>
             <Main open={open}>
 

@@ -4,6 +4,8 @@ import burger from "assets/icon/burger.svg";
 import ld from "assets/icon/ld.svg";
 import Logo from "./Logo";
 import { sideNavigationMenuArray } from "data/sideNavigationMenuArray";
+import { NavLink } from "react-router-dom";
+import logout from "assets/icon/logout.svg"
 
 type SideNavigationMenuProps = DivProps & {
   toggleOpen: VoidFunction;
@@ -24,11 +26,20 @@ function SideNavigationMenu({ toggleOpen, ...props }: SideNavigationMenuProps) {
           <span className="text">Lasting Dynamics</span>
         </div>
         {sideNavigationMenuArray.map((elm) => (
-          <div key={elm.id} className="item">
+          <NavLink
+            to={elm.text === "Processes" ? "/dashboard" : elm.text}
+            key={elm.id}
+            className={props => `item ${props.isActive && "active"}`}
+            end
+          >
             <img src={elm.iconSrc} alt={elm.text} />
             <div className="text"> {elm.text} </div>
-          </div>
+          </NavLink>
         ))}
+        <div className="item" title="logout" >
+            <img src={logout} alt="logout" />
+            <div className="text"> Logout </div>
+          </div>
       </div>
       <Logo className="logo" />
     </div>
@@ -50,8 +61,8 @@ const StyledSideNavigationMenu = styled(SideNavigationMenu, {
     cursor: "pointer",
     alignSelf: props.open ? "flex-end" : "center",
     "& .icon": {
-        paddingRight: props.open ? "30px": "0"
-    }
+      paddingRight: props.open ? "30px" : "0",
+    },
   },
 
   "& .list": {
@@ -83,6 +94,9 @@ const StyledSideNavigationMenu = styled(SideNavigationMenu, {
       "&:hover": {
         background: "#FFFFFF0D",
       },
+      "&.active": {
+        background: "#FFFFFF0D",
+      },
       "& .text": {
         color: "white",
         display: props.open ? "inline" : "none",
@@ -91,8 +105,8 @@ const StyledSideNavigationMenu = styled(SideNavigationMenu, {
   },
   "& .logo": {
     width: "30px",
-    height: "26px"
-  }
+    height: "26px",
+  },
 }));
 
 export default StyledSideNavigationMenu;

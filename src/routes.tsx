@@ -60,7 +60,13 @@ const router = createBrowserRouter([
             <RequiresAuthentication>
                 <DashboardContainer/>
             </RequiresAuthentication>
-        )
+        ),
+        children: [
+            {
+                path:"Users",
+                element: "Users"
+            }
+        ]
     }
 ])
 

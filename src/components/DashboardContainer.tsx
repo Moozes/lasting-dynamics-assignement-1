@@ -3,6 +3,7 @@ import PermanentDrawer from "./PemanentDrawer";
 import { colors } from "themes/variables";
 import { useState } from "react";
 import SideNavigationMenu from "./SideNavigationMenu";
+import { Outlet } from "react-router-dom";
 
 const fullDrawerWidth = "200px";
 const shrinkedDrawerWidth = "80px";
@@ -39,7 +40,7 @@ export default function DashboardContainer() {
                 <SideNavigationMenu open={open}  toggleOpen={() => setOpen(prev => !prev)} />
             </StyledPermanentDrawer>
             <Main open={open}>
-        hello
+                <Outlet/>
             </Main>
         </>
     )

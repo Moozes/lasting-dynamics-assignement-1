@@ -34,11 +34,10 @@ function ProcessCard({
 
   const imgSrc2 = icon === "board" ? board : cart;
   const imgAlt2 = icon === "board" ? "board icon" : "cart icon";
-  console.log(id);
-  
+
   return (
-    <div {...divProps}>
-      <Link to={"/dashboard/process/"+id}>
+    <Link to={"/dashboard/process/" + id} style={{ textDecoration: "none" }}>
+      <div {...divProps}>
         {controls && (
           <div className="controls">
             <Tooltip title={tooltipTitle} arrow placement="top">
@@ -49,8 +48,8 @@ function ProcessCard({
         )}
         <img src={imgSrc2} alt={imgAlt2} className="icon" />
         <Typography className="text"> {text} </Typography>
-      </Link>
-    </div>
+      </div>
+    </Link>
   );
 }
 
@@ -83,6 +82,7 @@ const StyledProcessCard = styled(ProcessCard)((props) => ({
     fontSize: 16,
     lineHeight: "24px",
     color: "white",
+    textDecoration: "none",
   },
 }));
 

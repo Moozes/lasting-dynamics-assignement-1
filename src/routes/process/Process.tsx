@@ -45,7 +45,7 @@ function Process(props: DivProps) {
           </Grid>
         ))}
       </Grid>
-      <processesContext.Provider value={{processes, addProcess}} >
+      <processesContext.Provider value={{addProcess}} >
         <CreateProcessModal open={open} onClose={() => setOpen(false)}  />
       </processesContext.Provider>
     </div>

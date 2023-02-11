@@ -2,7 +2,6 @@ import { createContext } from "react";
 import { TProcess } from "types/types";
 
 type ProcessesContext = {
-    processes : TProcess[],
     addProcess: (name: string, color: string) => void 
 }
 

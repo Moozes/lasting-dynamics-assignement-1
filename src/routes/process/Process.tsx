@@ -7,9 +7,12 @@ import CreateNewProcess from "./components/CreateNewProcess";
 import ProcessCard from "./components/ProcessCard";
 import useProcesses from "./hooks/useProcesses";
 import Skeleton from '@mui/material/Skeleton';
+import CreateProcessModal from "./components/CreateProcessModal";
+import { useState } from "react";
 
 function Process(props: DivProps) {
-  const { processes, loading: loadingProcesses } = useProcesses();
+  const { processes, loading: loadingProcesses, addProcess } = useProcesses();
+  const [open, setOpen] = useState(false)
 
   return (
     <div {...props}>
@@ -21,7 +24,7 @@ function Process(props: DivProps) {
       </Typography>
       <Grid container gap="24px">
         <Grid item>
-          <CreateNewProcess />
+          <CreateNewProcess onClick={() => setOpen(true)} />
         </Grid>
         {processes.map((elm) => (
           <Grid item key={elm.id} >
@@ -36,9 +39,12 @@ function Process(props: DivProps) {
           </Grid>
         ))}
         {Array.from({length: loadingProcesses ? 15 : 0}).map((elm, idx) => (
-          <Skeleton key={idx} variant="rectangular" width="150px" height="150px"/>
+          <Grid item key={idx}>
+            <Skeleton variant="rectangular" width="150px" height="150px"/>
+          </Grid>
         ))}
       </Grid>
+      <CreateProcessModal open={open} onClose={() => setOpen(false)}  />
     </div>
   );
 }

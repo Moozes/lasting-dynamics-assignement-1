@@ -36,7 +36,7 @@ function ProcessCard({
   const imgAlt2 = icon === "board" ? "board icon" : "cart icon";
 
   return (
-    <Link to={"/dashboard/process/" + id} style={{ textDecoration: "none" }}>
+    <Link to={`${id}`} style={{ textDecoration: "none" }}>
       <div {...divProps}>
         {controls && (
           <div className="controls">

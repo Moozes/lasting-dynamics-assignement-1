@@ -21,7 +21,7 @@ const StyledCreateNewProcess = styled(CreateNewProcess)({
     alignItems: "center",
     justifyContent: "center",
     gap: 13.33,
-    border: `1px dashed ${colors.divder}`,
+    border: `2spx dashed ${colors.divder}`,
     borderRadius: 8,
     cursor: "pointer",
     "& .text": {

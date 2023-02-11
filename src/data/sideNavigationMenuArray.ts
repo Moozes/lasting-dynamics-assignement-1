@@ -11,11 +11,7 @@ let id = 0;
 
 function generateObjectWithId(iconSrc: string, text: string) {
     id += 1;
-    return {
-        id,
-        iconSrc,
-        text
-    }
+    return { id, iconSrc, text }
 }
 
 export const sideNavigationMenuArray = [

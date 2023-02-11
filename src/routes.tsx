@@ -12,6 +12,7 @@ import NotFound from "routes/not-found/NotFound";
 import RequiresAuthentication from "components/RequiresAuthentication";
 import DashboardContainer from "components/DashboardContainer";
 import { generateEmptyRoutes } from "data/sideNavigationMenuArray";
+import Process from "routes/process/Process";
 
 const router = createBrowserRouter([
     {
@@ -63,6 +64,10 @@ const router = createBrowserRouter([
             </RequiresAuthentication>
         ),
         children: [
+            {
+                index: true,
+                element: <Process/>
+            },
             ...generateEmptyRoutes()
         ]
     }

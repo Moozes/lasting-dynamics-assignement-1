@@ -100,6 +100,7 @@ const StyledSideNavigationMenu = styled(SideNavigationMenu, {
       height: "48px",
       minWidth: "48px",
       borderRadius: "8px",
+      padding: props.open ? "0 10px"  : "0",
       "&:hover": {
         background: "#FFFFFF0D",
       },

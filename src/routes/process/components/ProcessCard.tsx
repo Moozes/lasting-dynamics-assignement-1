@@ -7,6 +7,7 @@ import closedLock from "assets/icon/closed-lock.svg";
 import openedLock from "assets/icon/opened-lock.svg";
 import Typography from "@mui/material/Typography";
 import Tooltip from "@mui/material/Tooltip";
+import { Link } from "react-router-dom";
 
 type ProcessCardProps = DivProps & {
   controls?: boolean;
@@ -14,6 +15,7 @@ type ProcessCardProps = DivProps & {
   text: string;
   icon?: "board" | "cart";
   bgColor: string;
+  id: string;
 };
 function ProcessCard({
   icon = "board",
@@ -21,26 +23,33 @@ function ProcessCard({
   isPrivate = false,
   text,
   bgColor,
+  id,
   ...divProps
 }: ProcessCardProps) {
   const imgSrc1 = isPrivate ? closedLock : openedLock;
   const imgAlt1 = isPrivate ? "closed lock icon" : "opened lock icon";
-  const tooltipTitle = isPrivate ? "This is a private process" : "This is a public process"
+  const tooltipTitle = isPrivate
+    ? "This is a private process"
+    : "This is a public process";
 
   const imgSrc2 = icon === "board" ? board : cart;
   const imgAlt2 = icon === "board" ? "board icon" : "cart icon";
+  console.log(id);
+  
   return (
     <div {...divProps}>
-      {controls && (
-        <div className="controls">
+      <Link to={"/dashboard/process/"+id}>
+        {controls && (
+          <div className="controls">
             <Tooltip title={tooltipTitle} arrow placement="top">
               <img src={imgSrc1} alt={imgAlt1} />
             </Tooltip>
-          <img src={menu} alt="menu icon" />
-        </div>
-      )}
-      <img src={imgSrc2} alt={imgAlt2} className="icon" />
-      <Typography className="text"> {text} </Typography>
+            <img src={menu} alt="menu icon" />
+          </div>
+        )}
+        <img src={imgSrc2} alt={imgAlt2} className="icon" />
+        <Typography className="text"> {text} </Typography>
+      </Link>
     </div>
   );
 }
@@ -53,6 +62,10 @@ const StyledProcessCard = styled(ProcessCard)((props) => ({
   height: 150,
   borderRadius: 8,
   textAlign: "center",
+  "& a": {
+    textDecoration: "none",
+    display: "bock",
+  },
   "& .controls": {
     display: "flex",
     alignItems: "center",

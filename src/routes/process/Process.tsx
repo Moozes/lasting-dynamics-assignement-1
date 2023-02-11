@@ -31,6 +31,7 @@ function Process(props: DivProps) {
               isPrivate={elm.isPrivate}
               text={elm.text}
               bgColor={elm.bgColor}
+              id={elm.id}
             />
           </Grid>
         ))}

@@ -4,7 +4,7 @@ import axios from "axios";
 
 export async function readAll() {
     try {
-        const {data: processes} = await axios.get<TProcess[]>("process")
+        const {data: processes} = await axsiosInstance.get<TProcess[]>("process")
         return processes
     }catch(e) {
         console.log(e)

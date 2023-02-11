@@ -1,12 +1,16 @@
-import { DivProps } from "types/types";
+import { DivProps, TProcessIcon } from "types/types";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import styled from "@emotion/styled";
 import { colors } from "themes/variables";
 import CreateNewProcess from "./components/CreateNewProcess";
 import ProcessCard from "./components/ProcessCard";
+import useProcesses from "./hooks/useProcesses";
+import Skeleton from '@mui/material/Skeleton';
 
 function Process(props: DivProps) {
+  const { processes, loading: loadingProcesses } = useProcesses();
+
   return (
     <div {...props}>
       <Typography className="title">Welcome, Fabrizio Nillo</Typography>
@@ -19,15 +23,20 @@ function Process(props: DivProps) {
         <Grid item>
           <CreateNewProcess />
         </Grid>
-        <Grid item>
-          <ProcessCard  text="process1" bgColor="black" />
-        </Grid>
-        <Grid item>
-          <ProcessCard controls text="process1" bgColor="black" />
-        </Grid>
-        <Grid item>
-          <ProcessCard controls text="process2" isPrivate={true} icon="cart" bgColor="blue" />
-        </Grid>
+        {processes.map((elm) => (
+          <Grid item key={elm.id} >
+            <ProcessCard
+              icon={elm.icon as TProcessIcon}
+              controls={elm.controls}
+              isPrivate={elm.isPrivate}
+              text={elm.text}
+              bgColor={elm.bgColor}
+            />
+          </Grid>
+        ))}
+        {Array.from({length: loadingProcesses ? 15 : 0}).map((elm, idx) => (
+          <Skeleton key={idx} variant="rectangular" width="150px" height="150px"/>
+        ))}
       </Grid>
     </div>
   );

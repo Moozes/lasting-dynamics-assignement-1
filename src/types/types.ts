@@ -16,3 +16,5 @@ export type TProcess = {
     icon: string;
     bgColor: string
 }
+
+export type TProcessIcon = "board" | "cart" | undefined

@@ -11,6 +11,7 @@ import InputAdornment from "@mui/material/InputAdornment";
 import ColorCircle from "components/ColorCircle";
 import useCreateProcessForm from "../hooks/useCreateProcessForm";
 import { formikError } from "utils/utils";
+import LoadingSpinner from "components/LoadingSpinner";
 
 type CreateNewProcessProps = {
   className?: string;
@@ -18,7 +19,7 @@ type CreateNewProcessProps = {
   onClose: VoidFunction;
 };
 function CreateProcessModal({ open, onClose, ...rest }: CreateNewProcessProps) {
-    const formik = useCreateProcessForm()
+    const formik = useCreateProcessForm(onClose)
   return (
     <Dialog open={open} onClose={onClose} {...rest}>
       <div className="header">
@@ -55,7 +56,14 @@ function CreateProcessModal({ open, onClose, ...rest }: CreateNewProcessProps) {
           <OutlinedDarkBlueButton onClick={onClose} type="button">
             Annulla
           </OutlinedDarkBlueButton>
-          <LightBlueButton type="submit" disabled={formik.isSubmitting} >Crea</LightBlueButton>
+          <LightBlueButton type="submit" disabled={formik.isSubmitting} >
+            Crea
+            <LoadingSpinner
+            color={colors.lightBlue}
+            className="loading-spinner"
+            open={formik.isSubmitting}
+          />
+            </LightBlueButton>
         </div>
       </form>
     </Dialog>
@@ -95,6 +103,9 @@ const StyledCreateProcessModal = styled(CreateProcessModal)({
       alignItems: "center",
       justifyContent: "flex-end",
       gap: 16,
+      "& .loading-spinner": {
+        marginLeft: "10px",
+      }
     },
   },
 });

@@ -9,6 +9,7 @@ import useProcesses from "./hooks/useProcesses";
 import Skeleton from '@mui/material/Skeleton';
 import CreateProcessModal from "./components/CreateProcessModal";
 import { useState } from "react";
+import { processesContext } from "./context/processes";
 
 function Process(props: DivProps) {
   const { processes, loading: loadingProcesses, addProcess } = useProcesses();
@@ -44,7 +45,9 @@ function Process(props: DivProps) {
           </Grid>
         ))}
       </Grid>
-      <CreateProcessModal open={open} onClose={() => setOpen(false)}  />
+      <processesContext.Provider value={{processes, addProcess}} >
+        <CreateProcessModal open={open} onClose={() => setOpen(false)}  />
+      </processesContext.Provider>
     </div>
   );
 }

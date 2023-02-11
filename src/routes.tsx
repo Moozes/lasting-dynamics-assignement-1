@@ -68,6 +68,10 @@ const router = createBrowserRouter([
                 index: true,
                 element: <Process/>
             },
+            {
+                path: "process/:processId",
+                element: "some process"
+            },
             ...generateEmptyRoutes()
         ]
     }

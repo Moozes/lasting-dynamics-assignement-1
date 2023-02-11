@@ -12,6 +12,7 @@ import ColorCircle from "components/ColorCircle";
 import useCreateProcessForm from "../hooks/useCreateProcessForm";
 import { formikError } from "utils/utils";
 import LoadingSpinner from "components/LoadingSpinner";
+import colorPalette from "assets/icon/color-palette.svg"
 
 type CreateNewProcessProps = {
   className?: string;
@@ -50,6 +51,9 @@ function CreateProcessModal({ open, onClose, ...rest }: CreateNewProcessProps) {
                 <ColorCircle color={formik.values.color}/>
               </InputAdornment>
             ),
+            endAdornment: <InputAdornment position="end">
+              <img src={colorPalette} alt="color palette icon" />
+            </InputAdornment>
           }}
         />
         <div className="actions">

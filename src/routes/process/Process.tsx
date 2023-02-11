@@ -3,6 +3,7 @@ import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import styled from "@emotion/styled";
 import { colors } from "themes/variables";
+import CreateNewProcess from "./components/CreateNewProcess"
 
 function Process(props: DivProps) {
   return (
@@ -13,6 +14,7 @@ function Process(props: DivProps) {
         <br />
         and close all tasks
       </Typography>
+      <CreateNewProcess/>
       <Grid container></Grid>
     </div>
   );

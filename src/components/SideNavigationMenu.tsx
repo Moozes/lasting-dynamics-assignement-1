@@ -36,10 +36,10 @@ function SideNavigationMenu({ toggleOpen, ...props }: SideNavigationMenuProps) {
         </div>
         {sideNavigationMenuArray.map((elm) => (
           <NavLink
-            to={elm.text === "Processes" ? "/dashboard" : elm.text.toLowerCase()}
+            to={elm.text === "Processes" ? "/dashboard/process" : elm.text.toLowerCase()}
             key={elm.id}
             className={props => `item ${props.isActive && "active"}`}
-            end
+            
           >
             <img src={elm.iconSrc} alt={elm.text} />
             <div className="text"> {elm.text} </div>

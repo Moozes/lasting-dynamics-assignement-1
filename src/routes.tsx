@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, Navigate } from "react-router-dom";
 import Login from "routes/login/Login";
 import ResetPasswordStep1Form from "routes/reset-password/components/Step1Form";
 import ResetPasswordEmailSent from "routes/reset-password/components/EmailSent";
@@ -66,6 +66,10 @@ const router = createBrowserRouter([
         children: [
             {
                 index: true,
+                element: <Navigate to="process" />
+            },
+            {
+                path: "process",
                 element: <Process/>
             },
             {

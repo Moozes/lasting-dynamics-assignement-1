@@ -6,7 +6,7 @@ import menu from "assets/icon/menu.svg";
 import closedLock from "assets/icon/closed-lock.svg";
 import openedLock from "assets/icon/opened-lock.svg";
 import Typography from "@mui/material/Typography";
-import { colors } from "themes/variables";
+import Tooltip from "@mui/material/Tooltip";
 
 type ProcessCardProps = DivProps & {
   controls?: boolean;
@@ -25,6 +25,7 @@ function ProcessCard({
 }: ProcessCardProps) {
   const imgSrc1 = isPrivate ? closedLock : openedLock;
   const imgAlt1 = isPrivate ? "closed lock icon" : "opened lock icon";
+  const tooltipTitle = isPrivate ? "This is a private process" : "This is a public process"
 
   const imgSrc2 = icon === "board" ? board : cart;
   const imgAlt2 = icon === "board" ? "board icon" : "cart icon";
@@ -32,7 +33,9 @@ function ProcessCard({
     <div {...divProps}>
       {controls && (
         <div className="controls">
-          <img src={imgSrc1} alt={imgAlt1} />
+            <Tooltip title={tooltipTitle} arrow placement="top">
+              <img src={imgSrc1} alt={imgAlt1} />
+            </Tooltip>
           <img src={menu} alt="menu icon" />
         </div>
       )}
@@ -44,6 +47,7 @@ function ProcessCard({
 
 const StyledProcessCard = styled(ProcessCard)((props) => ({
   padding: props.controls ? "13.33px 14.67px" : "34.67px",
+  cursor: "pointer",
   background: props.bgColor,
   width: 150,
   height: 150,

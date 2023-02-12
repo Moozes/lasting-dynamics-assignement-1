@@ -34,7 +34,7 @@ function ControlsBar(props: DivProps) {
       <StandardButtonWithIcon iconSrc={layout2}className="columns" >Columns</StandardButtonWithIcon>
       <StandardButtonWithIcon iconSrc={filters}>Filters</StandardButtonWithIcon>
       <StandardButtonWithIcon iconSrc={objectGroup} className="group" >
-        Grouped in :
+        Grouped in :&nbsp;
         <span>Phases</span>
       </StandardButtonWithIcon>
       <StandardButtonWithIcon iconSrc={verticalArrows}>

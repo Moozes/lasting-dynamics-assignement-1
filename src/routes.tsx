@@ -13,6 +13,7 @@ import RequiresAuthentication from "components/RequiresAuthentication";
 import DashboardContainer from "components/DashboardContainer";
 import { generateEmptyRoutes } from "data/sideNavigationMenuArray";
 import Process from "routes/process/Process";
+import ProcessDetail from "routes/process-detail/ProcessDetail";
 
 const router = createBrowserRouter([
     {
@@ -74,7 +75,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "process/:processId",
-                element: "some process"
+                element: <ProcessDetail/>
             },
             ...generateEmptyRoutes()
         ]

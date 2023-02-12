@@ -17,4 +17,13 @@ export type TProcess = {
     bgColor: string
 }
 
+export type TContract = {
+    id: string;
+    contractNumber: string;
+    customerNumber: string;
+    email: string;
+    contractType: "cdd" | "cdi";
+    phoneNumber: string
+}
+
 export type TProcessIcon = "board" | "cart" | undefined

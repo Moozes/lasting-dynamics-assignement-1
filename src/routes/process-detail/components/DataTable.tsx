@@ -8,8 +8,12 @@ import TableHead from "@mui/material/TableHead";
 import Table from "@mui/material/Table";
 import TableRow from "@mui/material/TableRow";
 import { colors } from "themes/variables";
+import useContracts from "../hooks/useContracts";
+import Skeleton from "@mui/material/Skeleton";
 
 function DataTable(props: TableContainerProps) {
+  const { contracts, loading: loadingContracts } = useContracts();
+
   return (
     <TableContainer component="div" {...props}>
       <Table>
@@ -23,13 +27,34 @@ function DataTable(props: TableContainerProps) {
           </TableRow>
         </TableHead>
         <TableBody>
-          <TableRow>
-            <TableCell>123</TableCell>
-            <TableCell>345</TableCell>
-            <TableCell>Email@</TableCell>
-            <TableCell>Good</TableCell>
-            <TableCell>334442234</TableCell>
+          {contracts.map((elm) => (
+            <TableRow key={elm.id}>
+              <TableCell> {elm.contractNumber} </TableCell>
+              <TableCell> {elm.customerNumber} </TableCell>
+              <TableCell> {elm.email} </TableCell>
+              <TableCell> {elm.contractType} </TableCell>
+              <TableCell> {elm.phoneNumber} </TableCell>
+            </TableRow>
+          ))}
+          {Array.from({length: loadingContracts ? 5 : 0}).map((elm, inx) => (
+          <TableRow key={inx} >
+            <TableCell>
+              <Skeleton variant="rectangular" height={36} />
+            </TableCell>
+            <TableCell>
+              <Skeleton variant="rectangular" height={36} />
+            </TableCell>
+            <TableCell>
+              <Skeleton variant="rectangular" height={36} />
+            </TableCell>
+            <TableCell>
+              <Skeleton variant="rectangular" height={36} />
+            </TableCell>
+            <TableCell>
+              <Skeleton variant="rectangular" height={36} />
+            </TableCell>
           </TableRow>
+          ))}
         </TableBody>
       </Table>
     </TableContainer>

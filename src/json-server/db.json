@@ -76,5 +76,23 @@
             "icon": "board",
             "bgColor": "#E547FF"
         }
+    ],
+    "contract": [
+        {
+            "id": 1,
+            "contractNumber": "co-a1",
+            "customerNumber": "cu-b1",
+            "email": "john@yahoo.com",
+            "contractType": "cdd",
+            "phoneNumber": "+213666614356"
+        },
+        {
+            "id": 2,
+            "contractNumber": "co-a2",
+            "customerNumber": "cu-b2",
+            "email": "elina@yahoo.com",
+            "contractType": "cdi",
+            "phoneNumber": "+33666614356"
+        }
     ]
 }

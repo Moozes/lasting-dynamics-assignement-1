@@ -1,8 +1,11 @@
 import styled from "@emotion/styled"
+import ControlsBar from "./components/ControlsBar";
 
 function ProcessDetail() {
   return (
-  <div></div>
+  <div>
+    <ControlsBar/>
+  </div>
   )
 }
 
@@ -11,4 +14,4 @@ const StyledProcessDetail = styled(ProcessDetail)({
 
 })
 
-export default ProcessDetail;
+export default StyledProcessDetail;

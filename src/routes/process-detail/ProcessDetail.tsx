@@ -5,16 +5,27 @@ import ControlsBar2 from "./components/ControlsBar2";
 import DataTable from "./components/DataTable";
 import AddContractForm from "./components/AddContractForm";
 import { useState } from "react";
+import useContracts from "./hooks/useContracts";
+import { contractsContext } from "./context/contracts";
 
 function ProcessDetail(props: DivProps) {
-  const [addFormOpen, setAddFormOpen] = useState(false)
+  const [addFormOpen, setAddFormOpen] = useState(false);
+  const contracts = useContracts();
   return (
     <div {...props}>
-      <ControlsBar openAddForm={() => setAddFormOpen(true)}/>
-      <div className="relative-container"> {/*relative*/}
+      <ControlsBar openAddForm={() => setAddFormOpen(true)} />
+      <div className="relative-container">
+        {" "}
+        {/*relative*/}
         <ControlsBar2 />
-        <DataTable />
-        <AddContractForm  addFormOpen={addFormOpen} closeAddForm={() => setAddFormOpen(false)} />{/*absolute*/}
+        <contractsContext.Provider value={contracts} >
+          <DataTable />
+          <AddContractForm
+            addFormOpen={addFormOpen}
+            closeAddForm={() => setAddFormOpen(false)}
+          />
+          {/*absolute*/}
+        </contractsContext.Provider>
       </div>
     </div>
   );

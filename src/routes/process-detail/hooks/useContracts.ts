@@ -1,6 +1,8 @@
 import { readAll as readAllContracts } from "api/contract";
 import { useEffect, useState } from "react";
 import { TContract } from "types/types";
+import { v4 as uuidv4 } from "uuid";
+
 
 export default function useContracts() {
     const [contracts, setContracts] = useState<TContract[]>([])
@@ -13,8 +15,16 @@ export default function useContracts() {
         .finally(() => setLoading(false))
     }, [])
 
+    const addContract = (c: Omit<TContract, "id">) => {
+        setContracts(prev => prev.concat({
+            id: uuidv4(),
+            ...c
+        }))
+    }
+
     return {
         contracts,
-        loading
+        loading,
+        addContract
     }
 }

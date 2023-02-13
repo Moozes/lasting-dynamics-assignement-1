@@ -10,9 +10,11 @@ import TableRow from "@mui/material/TableRow";
 import { colors } from "themes/variables";
 import useContracts from "../hooks/useContracts";
 import Skeleton from "@mui/material/Skeleton";
+import { useContext } from "react";
+import { contractsContext } from "../context/contracts";
 
 function DataTable(props: TableContainerProps) {
-  const { contracts, loading: loadingContracts } = useContracts();
+  const {contracts, loading: loadingContracts} = useContext(contractsContext)
 
   return (
     <TableContainer component="div" {...props}>
@@ -38,21 +40,11 @@ function DataTable(props: TableContainerProps) {
           ))}
           {Array.from({length: loadingContracts ? 5 : 0}).map((elm, inx) => (
           <TableRow key={inx} >
-            <TableCell>
+            {Array.from({length: 5}).map((elm, index) => (
+            <TableCell key={index} >
               <Skeleton variant="rectangular" height={36} />
             </TableCell>
-            <TableCell>
-              <Skeleton variant="rectangular" height={36} />
-            </TableCell>
-            <TableCell>
-              <Skeleton variant="rectangular" height={36} />
-            </TableCell>
-            <TableCell>
-              <Skeleton variant="rectangular" height={36} />
-            </TableCell>
-            <TableCell>
-              <Skeleton variant="rectangular" height={36} />
-            </TableCell>
+            ))}
           </TableRow>
           ))}
         </TableBody>

@@ -13,6 +13,7 @@ import rightArrow from "assets/icon/right-arrow.svg";
 import leftArrow from "assets/icon/left-arrow.svg";
 import useAddContractForm from "../hooks/useAddContractForm";
 import { formikError } from "utils/utils";
+import LoadingSpinner from "components/LoadingSpinner";
 
 type AddContractFormProps = {
   className?: string;
@@ -93,6 +94,11 @@ function AddContractForm({
         </OutlinedDarkBlueButton>
         <LightBlueButton type="submit" disabled={formik.isSubmitting}>
           Salva
+            <LoadingSpinner
+            color={colors.lightBlue}
+            className="loading-spinner"
+            open={formik.isSubmitting}
+          />
         </LightBlueButton>
       </div>
     </form>
@@ -148,6 +154,9 @@ const StyledAddContractForm = styled(AddContractForm)((props) => ({
     "& .empty": {
       flexGrow: 1,
     },
+    "& .loading-spinner": {
+        marginLeft: "10px"
+    }
   },
 }));
 export default StyledAddContractForm;

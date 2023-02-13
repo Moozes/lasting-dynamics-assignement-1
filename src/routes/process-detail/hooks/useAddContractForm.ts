@@ -1,4 +1,5 @@
 import { useFormik } from "formik";
+import { fakeAPI } from "utils/utils";
 import * as Yup from "yup"
 
 export default function useAddContractForm(closeAddForm: VoidFunction) {
@@ -18,7 +19,9 @@ export default function useAddContractForm(closeAddForm: VoidFunction) {
             phoneNumber: Yup.string().required("required"),
         }),
         onSubmit: async (values, helpers) => {
-            alert(JSON.stringify(values))
+            await fakeAPI(2000);
+            helpers.resetForm()
+            closeAddForm()
         }
     })
 

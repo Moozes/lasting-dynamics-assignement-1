@@ -20,20 +20,23 @@ import exportFile from "assets/icon/export-file.svg";
 import settings from "assets/icon/settings.svg";
 import plusCircle from "assets/icon/plus-circle.svg";
 
-function ControlsBar(props: DivProps) {
+type ControlsBarProps = DivProps & {
+  openAddForm: VoidFunction;
+};
+function ControlsBar({ openAddForm, ...props }: ControlsBarProps) {
   return (
     <div {...props}>
-      <StandardButtonWithIcon iconSrc={layout1}>
-        Views
-    </StandardButtonWithIcon>
-    <Divider orientation="vertical" flexItem variant="middle"/>
+      <StandardButtonWithIcon iconSrc={layout1}>Views</StandardButtonWithIcon>
+      <Divider orientation="vertical" flexItem variant="middle" />
       <StandardButtonWithIcon iconSrc={listFormat}>
         Tables
       </StandardButtonWithIcon>
-      <Divider orientation="vertical" flexItem variant="middle"/>
-      <StandardButtonWithIcon iconSrc={layout2}className="columns" >Columns</StandardButtonWithIcon>
+      <Divider orientation="vertical" flexItem variant="middle" />
+      <StandardButtonWithIcon iconSrc={layout2} className="columns">
+        Columns
+      </StandardButtonWithIcon>
       <StandardButtonWithIcon iconSrc={filters}>Filters</StandardButtonWithIcon>
-      <StandardButtonWithIcon iconSrc={objectGroup} className="group" >
+      <StandardButtonWithIcon iconSrc={objectGroup} className="group">
         Grouped in :&nbsp;
         <span>Phases</span>
       </StandardButtonWithIcon>
@@ -43,43 +46,49 @@ function ControlsBar(props: DivProps) {
       <StandardButtonWithIcon iconSrc={colorPalette}>
         Colors
       </StandardButtonWithIcon>
-      <StandardButtonWithIcon iconSrc={verticalResize} className="height" >
+      <StandardButtonWithIcon iconSrc={verticalResize} className="height">
         Height
       </StandardButtonWithIcon>
-      <div className="empty" ></div>
+      <div className="empty"></div>
       <img className="clickable" src={shoppingBag} alt="icon" />
       <img className="clickable" src={search} alt="icon" />
       <img className="clickable" src={importFile} alt="icon" />
       <img className="clickable" src={exportFile} alt="icon" />
       <img className="clickable" src={settings} alt="icon" />
-      <PinkButton className="add-button" startIcon={<img src={plusCircle} alt="icon" />} >Add</PinkButton>
+      <PinkButton
+        className="add-button"
+        startIcon={<img src={plusCircle} alt="icon" />}
+        onClick={openAddForm}
+      >
+        Add
+      </PinkButton>
     </div>
   );
 }
 
 const StyledControlsBar = styled(ControlsBar)({
-    padding: "12px 24px 20px",
-    display: "flex",
-    alignItems: "center",
-    gap: 16,
-    border: "2px solid #EAEAEC",
-    "& .columns": {
-        background: "#47FF9133",
+  padding: "12px 24px 20px",
+  display: "flex",
+  alignItems: "center",
+  gap: 16,
+  border: "2px solid #EAEAEC",
+  "& .columns": {
+    background: "#47FF9133",
+  },
+  "& .group": {
+    background: "#6C47FF33",
+    span: {
+      color: colors.subtitle2,
     },
-    "& .group": {
-        background: "#6C47FF33",
-        span: {
-            color: colors.subtitle2,
-        },
-    },
-    "& .empty": {
-        flexGrow: 1,
-    },
-    "& .clickable": {
-        cursor: "pointer",
-    },
-    "& .add-button": {
-        padding: "7px 12px"
-    }
+  },
+  "& .empty": {
+    flexGrow: 1,
+  },
+  "& .clickable": {
+    cursor: "pointer",
+  },
+  "& .add-button": {
+    padding: "7px 12px",
+  },
 });
 export default StyledControlsBar;

@@ -7,6 +7,7 @@ import AddContractForm from "./components/AddContractForm";
 import { useState } from "react";
 import useContracts from "./hooks/useContracts";
 import { contractsContext } from "./context/contracts";
+import Settings from "./components/settings/Settings";
 
 function ProcessDetail(props: DivProps) {
   const [addFormOpen, setAddFormOpen] = useState(false);
@@ -25,6 +26,7 @@ function ProcessDetail(props: DivProps) {
           />
         </contractsContext.Provider>
       </div>
+      <Settings open onClose={() => {}} />
     </div>
   );
 }

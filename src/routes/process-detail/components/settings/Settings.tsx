@@ -5,6 +5,8 @@ import { ReactComponent as CloseIcon } from "assets/icon/x.svg"
 import IconButton from "@mui/material/IconButton";
 import { colors } from "themes/variables"
 import Grid from "@mui/material/Grid";
+import SideMenu from "./SideMenu";
+import DialogContent from "@mui/material/DialogContent";
 
 type SettingsProps = {
     className?: string;
@@ -21,10 +23,14 @@ function component({ open, onClose, ...rest }: SettingsProps) {
                     <CloseIcon  />
                 </IconButton>
             </div>
-            <Grid container gap="32px" className="grid-container" >
-                <Grid item className="left" >list</Grid>
-                <Grid item flexGrow="1" className="right" >right</Grid>
-            </Grid>
+            <DialogContent>
+                <Grid container gap="32px" className="grid-container" >
+                    <Grid item className="left" >
+                        <SideMenu/>
+                    </Grid>
+                    <Grid item flexGrow="1" className="right" >right</Grid>
+                </Grid>
+            </DialogContent>
         </Dialog>
     )
 }
@@ -49,6 +55,9 @@ const Settings = styled(component)({
         "& .close-icon-button:hover svg path": {
             fill: colors.red,
         }
+    },
+    "& .MuiDialogContent-root": {
+        padding: 0,
     },
     "& .grid-container": {
         padding: "0 32px 0 24px",

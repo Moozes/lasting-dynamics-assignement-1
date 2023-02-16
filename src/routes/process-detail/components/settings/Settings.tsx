@@ -40,6 +40,7 @@ const Settings = styled(component)({
     "& .MuiPaper-root": {
         margin: 0,
         borderRadius: 15,
+        paddingBottom: "24px"
     },
     "& .header": {
         padding: 24,
@@ -57,13 +58,12 @@ const Settings = styled(component)({
         }
     },
     "& .MuiDialogContent-root": {
-        padding: 0,
+        padding: "0 32px 0 24px",
     },
     "& .grid-container": {
-        padding: "0 32px 0 24px",
+        height: "100%",
         "& .left": {
             borderRight: "2px solid #EAEAEC",
-            height: "760px",
             paddingRight: 40,
         },
         "& .right": {},

@@ -11,10 +11,11 @@ import Settings from "./components/settings/Settings";
 
 function ProcessDetail(props: DivProps) {
   const [addFormOpen, setAddFormOpen] = useState(false);
+  const [settingsOpen, setSettingsOpen] = useState(false);
   const contracts = useContracts();
   return (
     <div {...props}>
-      <ControlsBar openAddForm={() => setAddFormOpen(true)} />
+      <ControlsBar openAddForm={() => setAddFormOpen(true)} openSettings={() => setSettingsOpen(true)}/>
       <div className="relative-container">
         {" "}
         <ControlsBar2 />
@@ -26,7 +27,7 @@ function ProcessDetail(props: DivProps) {
           />
         </contractsContext.Provider>
       </div>
-      <Settings open onClose={() => {}} />
+      <Settings open={settingsOpen} onClose={() => {setSettingsOpen(false)}} />
     </div>
   );
 }

@@ -22,6 +22,7 @@ import plusCircle from "assets/icon/plus-circle.svg";
 
 type ControlsBarProps = DivProps & {
   openAddForm: VoidFunction;
+  openSettings: VoidFunction
 };
 function ControlsBar({ openAddForm, ...props }: ControlsBarProps) {
   return (
@@ -54,7 +55,7 @@ function ControlsBar({ openAddForm, ...props }: ControlsBarProps) {
       <img className="clickable" src={search} alt="icon" />
       <img className="clickable" src={importFile} alt="icon" />
       <img className="clickable" src={exportFile} alt="icon" />
-      <img className="clickable" src={settings} alt="icon" />
+      <img className="clickable" src={settings} alt="icon" onClick={props.openSettings} />
       <PinkButton
         className="add-button"
         startIcon={<img src={plusCircle} alt="icon" />}

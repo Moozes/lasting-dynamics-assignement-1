@@ -20,7 +20,7 @@ function Component({ open, onClose, ...rest }: SettingsProps) {
         <Dialog open={open} onClose={onClose} {...rest} fullScreen PaperProps={{elevation: 0}}>
             <div className="header">
                 <Typography className="title" >Impostazioni</Typography>
-                <IconButton className="close-icon-button">
+                <IconButton className="close-icon-button" onClick={onClose} >
                     <CloseIcon  />
                 </IconButton>
             </div>

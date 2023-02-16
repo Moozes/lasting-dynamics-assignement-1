@@ -16,7 +16,6 @@ function ProcessDetail(props: DivProps) {
       <ControlsBar openAddForm={() => setAddFormOpen(true)} />
       <div className="relative-container">
         {" "}
-        {/*relative*/}
         <ControlsBar2 />
         <contractsContext.Provider value={contracts} >
           <DataTable />
@@ -24,7 +23,6 @@ function ProcessDetail(props: DivProps) {
             addFormOpen={addFormOpen}
             closeAddForm={() => setAddFormOpen(false)}
           />
-          {/*absolute*/}
         </contractsContext.Provider>
       </div>
     </div>

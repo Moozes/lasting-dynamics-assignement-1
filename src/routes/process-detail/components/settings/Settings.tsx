@@ -7,6 +7,7 @@ import { colors } from "themes/variables"
 import Grid from "@mui/material/Grid";
 import SideMenu from "./SideMenu";
 import DialogContent from "@mui/material/DialogContent";
+import Members from "./Memebers";
 
 type SettingsProps = {
     className?: string;
@@ -14,7 +15,7 @@ type SettingsProps = {
     onClose: VoidFunction;
 }
 
-function component({ open, onClose, ...rest }: SettingsProps) {
+function Component({ open, onClose, ...rest }: SettingsProps) {
     return (
         <Dialog open={open} onClose={onClose} {...rest} fullScreen PaperProps={{elevation: 0}}>
             <div className="header">
@@ -28,14 +29,16 @@ function component({ open, onClose, ...rest }: SettingsProps) {
                     <Grid item className="left" >
                         <SideMenu/>
                     </Grid>
-                    <Grid item flexGrow="1" className="right" >right</Grid>
+                    <Grid item flexGrow="1" className="right" >
+                        <Members/>
+                    </Grid>
                 </Grid>
             </DialogContent>
         </Dialog>
     )
 }
 
-const Settings = styled(component)({
+const Settings = styled(Component)({
     padding: "16px 16px 16px 96px",
     "& .MuiPaper-root": {
         margin: 0,

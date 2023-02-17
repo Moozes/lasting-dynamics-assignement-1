@@ -1,3 +1,5 @@
+import { sideNavigationMenuArray } from "components/dashboard-container/sideNavigationMenuArray";
+
 // returns formik error as a boolean
 export function formikError(inputName: string, formik: any) {
   return Boolean(formik.touched[inputName] && formik.errors[inputName]);
@@ -13,4 +15,11 @@ export function fakeAPI(timer: number) {
 
 export function getAuthenticationFromLocalStorage() {
   return Boolean(localStorage.getItem("isAuthenticated"))
+}
+
+export function generateEmptyRoutes() {
+  return sideNavigationMenuArray.map(elm => ({
+      path: elm.text,
+      element: elm.text
+  }))
 }

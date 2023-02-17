@@ -6,12 +6,11 @@ import rightArrows from "assets/icon/right-arrows.svg"
 import robot from "assets/icon/robot.svg"
 import siteMap from "assets/icon/site-map.svg"
 import help from "assets/icon/help.svg"
+import { v4 as uuidv4 } from 'uuid';
 
-let id = 0;
 
 function generateObjectWithId(iconSrc: string, text: string) {
-    id += 1;
-    return { id, iconSrc, text }
+    return { id: uuidv4(), iconSrc, text }
 }
 
 export const sideNavigationMenuArray = [

@@ -11,7 +11,7 @@ import ResetPassword from "routes/reset-password/ResetPassword"
 import NotFound from "routes/not-found/NotFound";
 import RequiresAuthentication from "components/RequiresAuthentication";
 import DashboardContainer from "components/dashboard-container/DashboardContainer";
-import { generateEmptyRoutes } from "data/sideNavigationMenuArray";
+import { generateEmptyRoutes } from "utils/utils";
 import Process from "routes/process/Process";
 import ProcessDetail from "routes/process-detail/ProcessDetail";
 

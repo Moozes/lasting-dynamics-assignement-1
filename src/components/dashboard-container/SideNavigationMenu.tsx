@@ -3,7 +3,7 @@ import { DivProps } from "types/types";
 import burger from "assets/icon/burger.svg";
 import ld from "assets/icon/ld.svg";
 import Logo from "../Logo";
-import { sideNavigationMenuArray } from "data/sideNavigationMenuArray";
+import { sideNavigationMenuArray } from "./sideNavigationMenuArray";
 import { NavLink } from "react-router-dom";
 import logoutIcon from "assets/icon/logout.svg"
 import { useAuthenticationContext } from "hooks/useAuthenticationContext";

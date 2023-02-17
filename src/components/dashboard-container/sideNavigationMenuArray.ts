@@ -1,16 +1,17 @@
-import grid from "assets/icon/grid.svg"
-import users from "assets/icon/users.svg"
-import documentIcon from "assets/icon/document.svg"
-import dataStorage from "assets/icon/data-storage.svg"
-import rightArrows from "assets/icon/right-arrows.svg"
-import robot from "assets/icon/robot.svg"
-import siteMap from "assets/icon/site-map.svg"
-import help from "assets/icon/help.svg"
+import { ReactComponent as grid} from "assets/icon/grid.svg"
+import { ReactComponent as users} from "assets/icon/users.svg"
+import { ReactComponent as documentIcon} from "assets/icon/document.svg"
+import { ReactComponent as dataStorage} from "assets/icon/data-storage.svg"
+import { ReactComponent as rightArrows} from "assets/icon/right-arrows.svg"
+import { ReactComponent as robot} from "assets/icon/robot.svg"
+import { ReactComponent as siteMap} from "assets/icon/site-map.svg"
+import { ReactComponent as help} from "assets/icon/help.svg"
 import { v4 as uuidv4 } from 'uuid';
+import { ReactSVGComponent } from "types/types"
 
 
-function generateObjectWithId(iconSrc: string, text: string) {
-    return { id: uuidv4(), iconSrc, text }
+function generateObjectWithId(Icon: ReactSVGComponent, text: string) {
+    return { id: uuidv4(), Icon, text }
 }
 
 export const sideNavigationMenuArray = [
@@ -23,10 +24,3 @@ export const sideNavigationMenuArray = [
     generateObjectWithId(siteMap, "Map"),
     generateObjectWithId(help, "Help"),
 ]
-
-export function generateEmptyRoutes() {
-    return sideNavigationMenuArray.map(elm => ({
-        path: elm.text,
-        element: elm.text
-    }))
-}

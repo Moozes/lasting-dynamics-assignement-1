@@ -7,6 +7,7 @@ import { sideNavigationMenuArray } from "./sideNavigationMenuArray";
 import { NavLink } from "react-router-dom";
 import logoutIcon from "assets/icon/logout.svg"
 import { useAuthenticationContext } from "hooks/useAuthenticationContext";
+import { colors } from "themes/variables";
 
 type SideNavigationMenuProps = DivProps & {
   toggleOpen: VoidFunction;
@@ -41,7 +42,8 @@ function SideNavigationMenu({ toggleOpen, ...props }: SideNavigationMenuProps) {
             className={props => `item ${props.isActive && "active"}`}
             
           >
-            <img src={elm.iconSrc} alt={elm.text} />
+            {/* <img src={elm.iconSrc} alt={elm.text} /> */}
+            <elm.Icon/>
             <div className="text"> {elm.text} </div>
           </NavLink>
         ))}
@@ -101,15 +103,25 @@ const StyledSideNavigationMenu = styled(SideNavigationMenu, {
       minWidth: "48px",
       borderRadius: "8px",
       padding: props.open ? "0 10px"  : "0",
+      "& svg path": {
+        fill: "#EAEAEC",
+      },
       "&:hover": {
         background: "#FFFFFF0D",
+        "& svg path": {
+          fill: colors.pink,
+        }
       },
       "&.active": {
         background: "#FFFFFF0D",
+        "& svg path": {
+          fill: colors.pink,
+        }
       },
       "& .text": {
         color: "white",
         display: props.open ? "inline" : "none",
+        textDecoration: "none"
       },
     },
   },

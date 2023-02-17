@@ -22,7 +22,9 @@ function Form(props: DivProps) {
 
   return (
     <div {...props}>
+      <div className="empty"></div>
       <Logo className="logo" />
+      <div className="empty"></div>
       <Typography className="title">Login</Typography>
       <Typography className="secondary">
         Thanks to come back on Coraly
@@ -84,6 +86,8 @@ function Form(props: DivProps) {
           Sign up now
         </Link>
       </Typography>
+      <div className="empty"></div>
+      <div className="empty"></div>
       <SuccessSnackbar
         open={successOpen}
         onClose={() => setSuccessOpen(false)}
@@ -94,9 +98,15 @@ function Form(props: DivProps) {
 }
 
 const StyledForm = styled(Form)({
-  padding: "107px 100px 40px 100px",
+  padding: "0 100px 40px 100px",
+  display: "flex",
+  flexDirection: "column",
+  height: "100vh",
+  "& .empty": {
+    flexGrow: 1,
+  },
   "& .logo": {
-    marginBottom: "107.44px",
+    // marginBottom: "50px",
   },
   "& .title": {
     marginBottom: "8px",

@@ -15,7 +15,9 @@ function Step2Form(props: DivProps) {
 
   return (
     <div {...props}>
+      <div className="empty"></div>
       <Logo className="logo" />
+      <div className="empty"></div>
       <Typography className="title">Complete your profile</Typography>
       <Typography className="secondary">
         Insert all your info to proceed with your workspace
@@ -75,14 +77,22 @@ function Step2Form(props: DivProps) {
           />
         </LightBlueButton>
       </form>
+      <div className="empty"></div>
+      <div className="empty"></div>
     </div>
   );
 }
 
 const StyledStep2Form = styled(Step2Form)({
-  padding: "107px 100px 40px 100px",
+  padding: "0 100px 40px 100px",
+  display: "flex",
+  flexDirection: "column",
+  height: "100vh",
+  "& .empty": {
+    flexGrow: 1
+  },
   "& .logo": {
-    marginBottom: "107.44px",
+    // marginBottom: "50px",
   },
   "& .title": {
     marginBottom: "8px",

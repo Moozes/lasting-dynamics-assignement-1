@@ -14,6 +14,7 @@ import DashboardContainer from "components/dashboard-container/DashboardContaine
 import { generateEmptyRoutes } from "utils/utils";
 import Process from "routes/process/Process";
 import ProcessDetail from "routes/process-detail/ProcessDetail";
+import Test from "routes/test/Test";
 
 const router = createBrowserRouter([
     {
@@ -76,6 +77,10 @@ const router = createBrowserRouter([
             {
                 path: "process/:processId",
                 element: <ProcessDetail/>
+            },
+            {
+                path: "test",
+                element: <Test/>
             },
             ...generateEmptyRoutes()
         ]

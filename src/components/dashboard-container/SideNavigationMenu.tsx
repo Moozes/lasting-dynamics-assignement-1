@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import { DivProps } from "types/types";
 import burger from "assets/icon/burger.svg";
 import ld from "assets/icon/ld.svg";
-import Logo from "./Logo";
+import Logo from "../Logo";
 import { sideNavigationMenuArray } from "data/sideNavigationMenuArray";
 import { NavLink } from "react-router-dom";
 import logoutIcon from "assets/icon/logout.svg"

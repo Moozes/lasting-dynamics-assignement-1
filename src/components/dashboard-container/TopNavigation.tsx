@@ -5,7 +5,6 @@ import bell from "assets/icon/bell.svg"
 import a from "assets/icon/a.svg"
 import Typography from "@mui/material/Typography";
 import Breadcrumbs from "@mui/material/Breadcrumbs";
-import Divider from "@mui/material/Divider";
 import { colors } from "themes/variables";
 import { useParams } from "react-router-dom";
 

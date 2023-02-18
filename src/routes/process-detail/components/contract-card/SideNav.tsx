@@ -40,5 +40,7 @@ function Component(props: DivProps) {
 const SideNav = styled(Component)({
     display: "flex",
     flexDirection: "column",
+    borderLeft: "1px solid #EAEAEC",
+    height: "100%"
 })
 export default SideNav;

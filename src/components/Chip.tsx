@@ -5,10 +5,10 @@ import { ReactElement } from "react";
 
 type Props = {
     text: string;
-    icon: ReactElement;
-    className?: "string";
+    icon?: ReactElement;
+    className?: string;
 }
-function Component({text, icon, ...props}: Props) {
+function Component({text, icon = undefined, ...props}: Props) {
     return (
         <div {...props} >
             <Typography className="text" >{text}</Typography>

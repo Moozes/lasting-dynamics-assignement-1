@@ -15,7 +15,7 @@ import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
 import TableRow from "@mui/material/TableRow";
 import Typography from "@mui/material/Typography";
-import Chip from "./Chip";
+import Chip from "../../../../components/Chip";
 import { MEMBERS } from "./data";
 import Checkbox from "./Checkbox";
 

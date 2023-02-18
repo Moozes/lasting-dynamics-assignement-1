@@ -11,10 +11,10 @@ import { ReactComponent as TrashIcon } from "assets/icon/trash.svg";
 import { ReactComponent as CloseIcon } from "assets/icon/x.svg";
 import { font } from "utils/utils";
 import { colors } from "themes/variables";
-import IconButton from "@mui/material/IconButton";
 import Grid from "@mui/material/Grid";
 import SideNav from "./SideNav";
 import ListItem from "./ListItem";
+import FieldsPhase from "./FieldsPhase";
 
 type Props = {
   open: boolean;
@@ -45,8 +45,10 @@ function Component(props: Props) {
       </div>
       <DialogContent>
         <Grid container flexWrap="nowrap">
-          <Grid item flexGrow="1" className="left"></Grid>
-          <Grid item flexGrow="1" className="right"></Grid>
+          <Grid item flexGrow="1"  flexBasis="0" className="left"></Grid>
+          <Grid item flexGrow="1"  flexBasis="0" className="right">
+            <FieldsPhase/>
+          </Grid>
           <Grid item className="side-nav">
             <SideNav/>
           </Grid>
@@ -98,7 +100,9 @@ const ContractCard = styled(Component)({
     height: "calc(100vh - 116px)",
     overflow: "auto",
   },
-  "& .right": {},
+  "& .right": {
+    padding: "0 16px 0 17px"
+  },
   "& .side-nav": {},
 });
 export default ContractCard;

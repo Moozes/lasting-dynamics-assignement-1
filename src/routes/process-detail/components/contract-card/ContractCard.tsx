@@ -15,6 +15,7 @@ import Grid from "@mui/material/Grid";
 import SideNav from "./SideNav";
 import ListItem from "./ListItem";
 import FieldsPhase from "./FieldsPhase";
+import Form from "./Form";
 
 type Props = {
   open: boolean;
@@ -45,7 +46,9 @@ function Component(props: Props) {
       </div>
       <DialogContent>
         <Grid container flexWrap="nowrap">
-          <Grid item flexGrow="1"  flexBasis="0" className="left"></Grid>
+          <Grid item flexGrow="1"  flexBasis="0" className="left">
+            <Form/>
+          </Grid>
           <Grid item flexGrow="1"  flexBasis="0" className="right">
             <FieldsPhase/>
           </Grid>

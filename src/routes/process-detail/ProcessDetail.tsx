@@ -8,10 +8,12 @@ import { useState } from "react";
 import useContracts from "./hooks/useContracts";
 import { contractsContext } from "./context/contracts";
 import Settings from "./components/settings/Settings";
+import ContractCard from "./components/contract-card/ContractCard";
 
 function ProcessDetail(props: DivProps) {
   const [addFormOpen, setAddFormOpen] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
+  const [contractCardOpen, setContractCardOpen] = useState(false);
   const contracts = useContracts();
   return (
     <div {...props}>
@@ -28,6 +30,7 @@ function ProcessDetail(props: DivProps) {
         </contractsContext.Provider>
       </div>
       <Settings open={settingsOpen} onClose={() => {setSettingsOpen(false)}} />
+      <ContractCard open={contractCardOpen} onClose={() => setContractCardOpen(false)} />
     </div>
   );
 }

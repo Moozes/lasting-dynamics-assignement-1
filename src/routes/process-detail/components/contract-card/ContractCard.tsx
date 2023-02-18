@@ -12,7 +12,7 @@ type Props = {
 function Component(props: Props) {
     return (
         <Dialog {...props} fullScreen >
-            <div className="header">hello</div>
+            <div className="header"></div>
             <DialogContent></DialogContent>
         </Dialog>
     )
@@ -23,6 +23,7 @@ const ContractCard = styled(Component)({
         padding: "16px 16px 16px 96px"
     },
     "& .MuiPaper-root": {
+        padding: 24,
     }
 })
 export default ContractCard;

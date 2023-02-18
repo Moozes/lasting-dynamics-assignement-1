@@ -8,7 +8,6 @@ import TableHead from "@mui/material/TableHead";
 import Table from "@mui/material/Table";
 import TableRow from "@mui/material/TableRow";
 import { colors } from "themes/variables";
-import useContracts from "../hooks/useContracts";
 import Skeleton from "@mui/material/Skeleton";
 import { useContext } from "react";
 import { contractsContext } from "../context/contracts";

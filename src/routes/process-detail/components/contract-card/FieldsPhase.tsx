@@ -46,7 +46,7 @@ function Component(props: DivProps) {
                 {collapse2 ? <UpArrowIcon className="arrow" /> : <DownArrowIcon className="arrow" />}
             </div>
             <Collapse in={collapse2} className="collapse">
-                <OutlinedInput className="input" label="Start date" type="date" focused fullWidth />
+                <OutlinedInput className="input" label="Start date" fullWidth />
             </Collapse>
             <div className="phase-container">
                 <StartIcon className="pink"/>
@@ -94,6 +94,6 @@ const FieldsPhase = styled(Component)({
     },
     "& .collapse": {
         paddingLeft: 16
-    }
+    },
 })
 export default FieldsPhase;

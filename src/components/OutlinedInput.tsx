@@ -21,6 +21,12 @@ const StyledOutlinedInput = styled(OutlinedInput)({
     color: colors.subtitle3,
     ...textStyles,
   },
+  "& .MuiInputBase-root fieldset": {
+    borderColor: "#C1C0C7",
+  },
+  "& .MuiInputBase-root.Mui-focused fieldset": {
+    borderColor: "#5A5A73",
+  },
 });
 
 function OutlinedInput(props: TextFieldProps) {

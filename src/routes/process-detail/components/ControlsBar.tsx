@@ -81,6 +81,7 @@ const StyledControlsBar = styled(ControlsBar)({
     span: {
       color: colors.subtitle2,
     },
+    flexWrap: "wrap",
   },
   "& .empty": {
     flexGrow: 1,

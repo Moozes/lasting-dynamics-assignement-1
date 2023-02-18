@@ -22,7 +22,7 @@ function ProcessDetail(props: DivProps) {
         {" "}
         <ControlsBar2 />
         <contractsContext.Provider value={contracts} >
-          <DataTable />
+          <DataTable openContractCard={() => setContractCardOpen(true)}/>
           <AddContractForm
             addFormOpen={addFormOpen}
             closeAddForm={() => setAddFormOpen(false)}

@@ -13,7 +13,11 @@ import Skeleton from "@mui/material/Skeleton";
 import { useContext } from "react";
 import { contractsContext } from "../context/contracts";
 
-function DataTable(props: TableContainerProps) {
+
+type Props = TableContainerProps & {
+  openContractCard: VoidFunction
+}
+function DataTable({openContractCard, ...props}: Props) {
   const {contracts, loading: loadingContracts} = useContext(contractsContext)
 
   return (
@@ -30,7 +34,7 @@ function DataTable(props: TableContainerProps) {
         </TableHead>
         <TableBody>
           {contracts.map((elm) => (
-            <TableRow key={elm.id} className="clickable-row" >
+            <TableRow key={elm.id} className="clickable-row"  onClick={openContractCard} >
               <TableCell> {elm.contractNumber} </TableCell>
               <TableCell> {elm.customerNumber} </TableCell>
               <TableCell> {elm.email} </TableCell>

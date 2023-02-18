@@ -12,7 +12,9 @@ import { ReactComponent as CloseIcon } from "assets/icon/x.svg";
 import { font } from "utils/utils";
 import { colors } from "themes/variables";
 import IconButton from "@mui/material/IconButton";
-import { color } from "@mui/system";
+import Grid from "@mui/material/Grid";
+import SideNav from "./SideNav";
+import ListItem from "./ListItem";
 
 type Props = {
   open: boolean;
@@ -37,11 +39,19 @@ function Component(props: Props) {
           <CopyIcon />
           <TrashIcon />
         </div>
-        <IconButton className="close-btn" onClick={props.onClose}>
+        <ListItem  className="close-btn" onClick={props.onClose}>
           <CloseIcon />
-        </IconButton>
+        </ListItem>
       </div>
-      <DialogContent></DialogContent>
+      <DialogContent>
+        <Grid container flexWrap="nowrap">
+          <Grid item flexGrow="1" className="left"></Grid>
+          <Grid item flexGrow="1" className="right"></Grid>
+          <Grid item className="side-nav">
+            <SideNav/>
+          </Grid>
+        </Grid>
+      </DialogContent>
     </Dialog>
   );
 }
@@ -51,7 +61,10 @@ const ContractCard = styled(Component)({
     padding: "16px 16px 16px 96px",
   },
   "& .MuiPaper-root": {
-    padding: 24,
+    padding: "24px 0px 24px 24px",
+  },
+  "& .MuiDialogContent-root": {
+    padding: 0,
   },
   "& .header": {
     display: "flex",
@@ -78,16 +91,14 @@ const ContractCard = styled(Component)({
       gap: 20,
     },
     "& .close-btn": {
-        padding: "0 0 0 13.99px",
-        borderRadius: 0,
-        borderLeft: "1px solid #EAEAEC",
-        "&:hover": {
-            borderLeft: "1px solid "+colors.pink,
-            "& svg path": {
-                fill: colors.pink
-            }
-        }
+        height: "auto"
     }
   },
+  "& .left": {
+    height: "calc(100vh - 116px)",
+    overflow: "auto",
+  },
+  "& .right": {},
+  "& .side-nav": {},
 });
 export default ContractCard;

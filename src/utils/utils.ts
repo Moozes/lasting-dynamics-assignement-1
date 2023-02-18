@@ -23,3 +23,13 @@ export function generateEmptyRoutes() {
       element: elm.text
   }))
 }
+
+// returns an object with font styles css
+export function font(weight: number, size: number, lineHeight: number, color: string) {
+  return {
+    fontSize: size,
+    fontWeight: weight,
+    lineHeight: lineHeight+"px",
+    color
+  }
+}

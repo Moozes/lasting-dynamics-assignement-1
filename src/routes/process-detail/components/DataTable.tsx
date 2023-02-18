@@ -30,7 +30,7 @@ function DataTable(props: TableContainerProps) {
         </TableHead>
         <TableBody>
           {contracts.map((elm) => (
-            <TableRow key={elm.id}>
+            <TableRow key={elm.id} className="clickable-row" >
               <TableCell> {elm.contractNumber} </TableCell>
               <TableCell> {elm.customerNumber} </TableCell>
               <TableCell> {elm.email} </TableCell>
@@ -68,5 +68,9 @@ const StyledDataTable = styled(DataTable)({
   "& .MuiTableCell-head": {
     fontWeight: 700,
   },
+  "& .clickable-row:hover": {
+    cursor: "pointer",
+    opacity: 0.4
+  }
 });
 export default StyledDataTable;

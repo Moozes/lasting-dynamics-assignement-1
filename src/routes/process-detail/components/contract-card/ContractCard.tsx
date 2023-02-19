@@ -16,6 +16,9 @@ import SideNav from "./SideNav";
 import ListItem from "./ListItem";
 import FieldsPhase from "./FieldsPhase";
 import Form from "./Form";
+import DialogActions from "@mui/material/DialogActions";
+import LightBlueButton from "components/LighBlueButton";
+import OutlinedDarkBlueButton from "components/OutlinedDarkBlueButton";
 
 type Props = {
   open: boolean;
@@ -57,6 +60,15 @@ function Component(props: Props) {
           </Grid>
         </Grid>
       </DialogContent>
+      <DialogActions>
+        <div className="face-id">
+        Fase ID:{" "}
+        <span>61571535e7058c00143322b8</span>
+        </div>
+        <div className="empty"></div>
+        <OutlinedDarkBlueButton onClick={props.onClose} >Annulla</OutlinedDarkBlueButton>
+        <LightBlueButton>Salva</LightBlueButton>
+      </DialogActions>
     </Dialog>
   );
 }
@@ -66,12 +78,26 @@ const ContractCard = styled(Component)({
     padding: "16px 16px 16px 96px",
   },
   "& .MuiPaper-root": {
-    padding: "24px 0px 24px 24px",
+    // padding: "24px 0px 24px 24px",
   },
   "& .MuiDialogContent-root": {
     padding: 0,
+    overflow: "hidden",
+  },
+  "& .MuiDialogActions-root": {
+    padding: "20px 24px 24px 24px",
+    "& .face-id": {
+      ...font(600, 16, 24, colors.title),
+      "& span": {
+        ...font(400, 14, 18, colors.title),
+      },
+    },
+    "& .empty": {
+      flexGrow: 1
+    }
   },
   "& .header": {
+    padding: "24px 0 18px 24px",
     display: "flex",
     alignItems: "center",
     gap: 26,
@@ -100,8 +126,8 @@ const ContractCard = styled(Component)({
     }
   },
   "& .left": {
-    height: "calc(100vh - 116px)",
-    overflow: "auto",
+    height: "calc(100vh - 196px)",
+    overflowY: "auto",
   },
   "& .right": {
     padding: "0 16px 0 17px"

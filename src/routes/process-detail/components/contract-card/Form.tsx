@@ -10,8 +10,12 @@ import { ReactComponent as DateIcon } from "assets/icon/date.svg";
 import { ReactComponent as PlusCircleIcon } from "assets/icon/plus-circle.svg";
 import { ReactComponent as AccountIcon } from "assets/icon/account.svg";
 import { ReactComponent as DataStorageIcon } from "assets/icon/data-storage.svg";
+import { ReactComponent as DocumentIcon } from "assets/icon/document.svg";
 import Divider from "@mui/material/Divider";
-
+import FormControlLabel from "@mui/material/FormControlLabel";
+import RadioGroup from "@mui/material/RadioGroup";
+import Radio from "./Radio";
+import OutlinedInput from "components/OutlinedInput";
 
 const LETTERS = ["PL", "CN", "FM", "LN", "ST"];
 
@@ -41,50 +45,84 @@ function Component(props: DivProps) {
         <PlusCircleIcon className="pink" />
       </div>
       <div className="grid-3">
-            <div className="vendors">
-                <AccountIcon/>
-                <span>Select vendors</span>
-                <DownArrowIcon/>
-            </div>
-            <div className="empty"></div>
-            <Divider orientation="vertical" flexItem/>
-            <div className="empty"></div>
-            <div className="db">
-                <DataStorageIcon/>
-                #database_object_1
-            </div>
-            <div className="db">
-                <DataStorageIcon/>
-                #db-oject1
-            </div>
+        <div className="vendors">
+          <AccountIcon />
+          <span>Select vendors</span>
+          <DownArrowIcon />
+        </div>
+        <div className="empty"></div>
+        <Divider orientation="vertical" flexItem />
+        <div className="empty"></div>
+        <div className="db">
+          <DataStorageIcon />
+          #database_object_1
+        </div>
+        <div className="db">
+          <DataStorageIcon />
+          #db-oject1
+        </div>
       </div>
+      <div className="form-name">Startform Name</div>
+      <OutlinedInput className="input" fullWidth label="Email" />
+      <OutlinedInput
+        className="input"
+        fullWidth
+        label="Description test"
+        multiline
+        rows={2}
+        helperText="This is a description"
+      />
+      <div className="form-name">Company data</div>
+      <div className="form-grid">
+        <div className="left-side">
+            <DocumentIcon/>
+            <div className="divider"></div>
+        </div>
+        <div className="right-side">
+           <OutlinedInput  className="input" fullWidth label="Company Name" />
+           <OutlinedInput  className="input" fullWidth label="Surname" />
+           <RadioGroup>
+            <FormControlLabel value="Company" control={<Radio/>} label="Company"/>
+            <FormControlLabel value="Person" control={<Radio/>} label="Person"/>
+           </RadioGroup>
+        </div>
+      </div>
+      <div className="form-name">Gender</div>
+      <RadioGroup>
+            <FormControlLabel value="Male" control={<Radio/>} label="Male"/>
+            <FormControlLabel value="Female" control={<Radio/>} label="Female"/>
+            <FormControlLabel value="Not declared" control={<Radio/>} label="Not declared"/>
+        </RadioGroup>
     </div>
   );
 }
 
 const Form = styled(Component)({
   paddingRight: 16,
+  paddingLeft: 24,
   overflowY: "scroll",
+  overflowX: "hidden",
   height: "100%",
   "& .grid-1": {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
     gap: 6,
-    marginBottom: 15
-},
-"& .grid-2": {
+    marginBottom: 15,
+  },
+  "& .grid-2": {
     display: "flex",
     alignItems: "center",
     gap: 8,
-    marginBottom: 15
+    marginBottom: 15,
   },
-"& .grid-3": {
+  "& .grid-3": {
     display: "flex",
     alignItems: "center",
     gap: 12,
     borderBottom: "1px solid #EAEAEC",
-    paddingBottom: 14
+    paddingBottom: 14,
+    marginBottom: 16,
   },
   "& .empty": {
     flexGrow: 1,
@@ -105,8 +143,11 @@ const Form = styled(Component)({
   "& .vendors": {
     display: "flex",
     alignItems: "center",
-    gap: 6,    
+    gap: 6,
     ...font(600, 14, 18, colors.subtitle1),
+    "& span": {
+        whiteSpace: "nowrap",
+    },
   },
   "& .db": {
     display: "flex",
@@ -115,13 +156,47 @@ const Form = styled(Component)({
     background: "#D6D5D9",
     padding: "2px 16px",
     borderRadius: 100,
+    whiteSpace: "nowrap",
     "& svg ": {
-        height: 16,
+      height: 16,
+      width: 16,
+      "& path": {
+        fill: "#312E43",
+      },
+    },
+  },
+  "& .form-name": {
+    ...font(600, 16, 24, colors.title),
+    marginBottom: 16,
+  },
+  "& .input": {
+    marginBottom: 16,
+  },
+  "& .form-grid": {
+    display: "flex",
+    gap: 20,
+    marginBottom: 16,
+    "& .left-side": {
         width: 16,
-        "& path": {
-            fill: "#312E43"
+        flexShrink: 0,
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        gap: 10,
+        "& svg path": {
+            fill: "#9897A1"
+        },
+        "& .divider": {
+            borderLeft: "2px solid #EAEAEC",
+            flexGrow: 1
         }
-    }
+    },
+    "& .right-side": {
+        flexGrow: 1,
+        "& .input": {
+            marginBottom: 24,
+        }
+    },
   }
 });
 export default Form;

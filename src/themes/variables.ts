@@ -8,4 +8,6 @@ export const colors = {
     subtitle3: "#5A5869",
     subtitle4: "#9897A1",
     red: "#d32f2f",
+    divder: "#D6D5D9",
+    buttonText: "#83828E",
 }

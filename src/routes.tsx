@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, Navigate } from "react-router-dom";
 import Login from "routes/login/Login";
 import ResetPasswordStep1Form from "routes/reset-password/components/Step1Form";
 import ResetPasswordEmailSent from "routes/reset-password/components/EmailSent";
@@ -10,6 +10,11 @@ import SignupStep2Form from "routes/singup/components/Step2Form";
 import ResetPassword from "routes/reset-password/ResetPassword"
 import NotFound from "routes/not-found/NotFound";
 import RequiresAuthentication from "components/RequiresAuthentication";
+import DashboardContainer from "components/dashboard-container/DashboardContainer";
+import { generateEmptyRoutes } from "utils/utils";
+import Process from "routes/process/Process";
+import ProcessDetail from "routes/process-detail/ProcessDetail";
+import Test from "routes/test/Test";
 
 const router = createBrowserRouter([
     {
@@ -57,9 +62,28 @@ const router = createBrowserRouter([
         path: "/dashboard",
         element: (
             <RequiresAuthentication>
-                <h1>Dashboard</h1>
+                <DashboardContainer/>
             </RequiresAuthentication>
-        )
+        ),
+        children: [
+            {
+                index: true,
+                element: <Navigate to="process" />
+            },
+            {
+                path: "process",
+                element: <Process/>
+            },
+            {
+                path: "process/:processId",
+                element: <ProcessDetail/>
+            },
+            {
+                path: "test",
+                element: <Test/>
+            },
+            ...generateEmptyRoutes()
+        ]
     }
 ])
 

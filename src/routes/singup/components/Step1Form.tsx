@@ -18,7 +18,9 @@ function Step1Form(props: DivProps) {
 
   return (
     <div {...props}>
+      <div className="empty"></div>
       <Logo className="logo" />
+      <div className="empty"></div>
       <Typography className="title">Create your workspace</Typography>
       <Typography className="secondary">
         Coraly is the tool to manage your work processes form the same place
@@ -94,14 +96,22 @@ function Step1Form(props: DivProps) {
           Sign in
         </Link>
       </Typography>
+      <div className="empty"></div>
+      <div className="empty"></div>
     </div>
   );
 }
 
 const StyledStep1Form = styled(Step1Form)({
-  padding: "107px 100px 40px 100px",
+  padding: "0 100px 40px 100px",
+  display: "flex",
+  flexDirection: "column",
+  height: "100vh",
+  "& .empty": {
+    flexGrow: 1
+  },
   "& .logo": {
-    marginBottom: "107.44px",
+    // marginBottom: "20px",
   },
   "& .title": {
     marginBottom: "8px",

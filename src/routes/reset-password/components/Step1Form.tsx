@@ -15,7 +15,9 @@ function Step1Form(props: DivProps) {
 
   return (
     <div {...props}>
+      <div className="empty"></div>
       <Logo className="logo" />
+      <div className="empty"></div>
       <Typography className="title">Do you forgot your password?</Typography>
       <Typography className="secondary">
         Insert your email and we will send you a link in your email box to reset
@@ -54,14 +56,22 @@ function Step1Form(props: DivProps) {
           </Link>
         </Typography>
       </form>
+      <div className="empty"></div>
+      <div className="empty"></div>
     </div>
   );
 }
 
 const StyledStep1Form = styled(Step1Form)({
-  padding: "107px 100px 40px 100px",
+  padding: "0 100px 40px 100px",
+  display: "flex",
+  flexDirection: "column",
+  height: "100vh",
+  "& .empty": {
+    flexGrow: 1
+  },
   "& .logo": {
-    marginBottom: "107.44px",
+    // marginBottom: "107.44px",
   },
   "& .title": {
     marginBottom: "8px",

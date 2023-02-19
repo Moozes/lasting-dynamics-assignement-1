@@ -1,6 +1,98 @@
 {
-    "users": [
+    "user": [
         {"id": 1, "email": "john@yahoo.com", "password": "helloworld"},
         {"id": 2, "email": "elina@yahoo.com", "password": "helloworld2"}
+    ],
+    "process": [
+        {
+            "id": 1,
+            "text": "Process 1",
+            "controls": false,
+            "isPrivate": false,
+            "icon": "board",
+            "bgColor": "#47BDFF"
+        },
+        {
+            "id": 2,
+            "text": "Process 2",
+            "controls": true,
+            "isPrivate": true,
+            "icon": "board",
+            "bgColor": "#FF47B5"
+        },
+        {
+            "id": 3,
+            "text": "Process 3",
+            "controls": true,
+            "isPrivate": false,
+            "icon": "cart",
+            "bgColor": "#FF9F47"
+        },
+        {
+            "id": 4,
+            "text": "Process 4",
+            "controls": false,
+            "isPrivate": false,
+            "icon": "board",
+            "bgColor": "#6C47FF"
+        },
+        {
+            "id": 5,
+            "text": "Process 5",
+            "controls": false,
+            "isPrivate": false,
+            "icon": "board",
+            "bgColor": "#2EF1CE"
+        },
+        {
+            "id": 6,
+            "text": "Process 6",
+            "controls": false,
+            "isPrivate": false,
+            "icon": "board",
+            "bgColor": "#F6D524"
+        },
+        {
+            "id": 7,
+            "text": "Process 7",
+            "controls": false,
+            "isPrivate": false,
+            "icon": "board",
+            "bgColor": "#E547FF"
+        },
+        {
+            "id": 8,
+            "text": "Process 8",
+            "controls": false,
+            "isPrivate": false,
+            "icon": "board",
+            "bgColor": "#F6D524"
+        },
+        {
+            "id": 9,
+            "text": "Process 9",
+            "controls": false,
+            "isPrivate": false,
+            "icon": "board",
+            "bgColor": "#E547FF"
+        }
+    ],
+    "contract": [
+        {
+            "id": 1,
+            "contractNumber": "co-a1",
+            "customerNumber": "cu-b1",
+            "email": "john@yahoo.com",
+            "contractType": "cdd",
+            "phoneNumber": "+213666614356"
+        },
+        {
+            "id": 2,
+            "contractNumber": "co-a2",
+            "customerNumber": "cu-b2",
+            "email": "elina@yahoo.com",
+            "contractType": "cdi",
+            "phoneNumber": "+33666614356"
+        }
     ]
 }

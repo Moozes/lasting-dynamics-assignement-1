@@ -14,31 +14,34 @@ function Step2Form(props: DivProps) {
 
   return (
     <div {...props}>
+      <div className="empty"></div>
       <Logo className="logo" />
+      <div className="empty"></div>
       <Typography className="title">Insert new password</Typography>
       <Typography className="secondary">
         Enter your new password to access the platform
       </Typography>
 
-      <form
-      onSubmit={formik.handleSubmit}
-      >
+      <form onSubmit={formik.handleSubmit}>
         <OutlinedInput
-            className="password1-input"
-            label="New password"
-            type="password"
+          className="password1-input"
+          label="New password"
+          type="password"
           fullWidth
           error={formikError("password", formik)}
           helperText={formikError("password", formik) && formik.errors.password}
           {...formik.getFieldProps("password")}
         />
         <OutlinedInput
-            className="password2-input"
-            label="Confirm new password"
-            type="password"
+          className="password2-input"
+          label="Confirm new password"
+          type="password"
           fullWidth
           error={formikError("repeatPassword", formik)}
-          helperText={formikError("repeatPassword", formik) && formik.errors.repeatPassword}
+          helperText={
+            formikError("repeatPassword", formik) &&
+            formik.errors.repeatPassword
+          }
           {...formik.getFieldProps("repeatPassword")}
         />
 
@@ -46,7 +49,7 @@ function Step2Form(props: DivProps) {
           type="submit"
           className="confirm-password-button"
           fullWidth
-             disabled={formik.isSubmitting}
+          disabled={formik.isSubmitting}
         >
           Confirm new password
           <LoadingSpinner
@@ -56,14 +59,22 @@ function Step2Form(props: DivProps) {
           />
         </PinkButton>
       </form>
+      <div className="empty"></div>
+      <div className="empty"></div>
     </div>
   );
 }
 
 const StyledStep2Form = styled(Step2Form)({
-  padding: "107px 100px 40px 100px",
+  padding: "0 100px 40px 100px",
+  display: "flex",
+  flexDirection: "column",
+  height: "100vh",
+  "& .empty": {
+    flexGrow: 1,
+  },
   "& .logo": {
-    marginBottom: "107.44px",
+    // marginBottom: "107.44px",
   },
   "& .title": {
     marginBottom: "8px",
